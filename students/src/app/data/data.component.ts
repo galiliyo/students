@@ -20,6 +20,7 @@ import {
   skip,
   Subject,
 } from 'rxjs';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 // interface StudentTableDisplayRow {
 //   studentId: number;
@@ -32,7 +33,7 @@ import {
 @Component({
   selector: 'app-data',
   standalone: true,
-  imports: [GenericTableComponent],
+  imports: [GenericTableComponent, MatSidenavModule],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
 })

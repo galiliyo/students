@@ -1,4 +1,13 @@
-<main class="page-container">
+  <mat-sidenav-container [hasBackdrop]="false" class="drawer-container">
+    <main class="page-container">
+
+    <mat-sidenav position="end" mode="push" [opened]="!!selectedRowId"  class="side-nav" >
+
+      xxx
+    </mat-sidenav>
+
+
+
   <app-generic-table
     [columnDefs]="columnDefinitions"
     [data]="displayData"
@@ -8,4 +17,6 @@
     (selectedRowChange)="selectedRowChange($event)"
   >
   </app-generic-table>
-</main>
+    </main>
+
+  </mat-sidenav-container>
