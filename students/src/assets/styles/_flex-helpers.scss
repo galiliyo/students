@@ -1,0 +1,57 @@
+/* Horizontal row layout */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Vertical column layout */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-justify-end {
+  justify-content: flex-end;
+}
+
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-align-baseline {
+  align-items: baseline;
+}
+
+/* Space evenly between content */
+.flex-space-evenly {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Set item to grow to fill available space */
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-grow-zero {
+  flex-grow: 0;
+}
+
+/* Set item to shrink if necessary */
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
+
+.full-width{
+  width: 100%;
+}

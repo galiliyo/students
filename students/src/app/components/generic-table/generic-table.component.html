@@ -1,0 +1,29 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="full-width-table">
+    <ng-container *ngFor="let def of columnDefs" [matColumnDef]="def.colId">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        [mat-sort-header]="def.sortable ? def.colId : ''"
+      >
+        {{ def.header }}
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row[def.colId] }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="onRowClicked(row)"
+      [ngClass]="{ 'selected-row': row.id === selectedRowId }"
+      class="table-row"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="pageSizeOptions"
+    [pageSize]="pageSize"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

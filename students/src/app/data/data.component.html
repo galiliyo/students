@@ -1,0 +1,11 @@
+<main class="page-container">
+  <app-generic-table
+    [columnDefs]="columnDefinitions"
+    [data]="displayData"
+    [pageSizeOptions]="[5, 10, 20]"
+    [pageSize]="10"
+    [selectedRowId]="selectedRowId"
+    (selectedRowChange)="selectedRowChange($event)"
+  >
+  </app-generic-table>
+</main>

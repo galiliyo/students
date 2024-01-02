@@ -1,0 +1,902 @@
+[
+  {
+    "id": 101,
+    "name": "Samuel Martinez",
+    "email": "samuel.martinez@gmail.com",
+    "joinDate": "2024-10-23",
+    "address": {
+      "line_1": "87 Cedar Rd.",
+      "zip": "42649",
+      "city": "San Jose",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 86,
+      "math": 94,
+      "french": 71,
+      "history": 72
+    }
+  },
+  {
+    "id": 102,
+    "name": "Alexander Lee",
+    "email": "alexander.lee@outlook.com",
+    "joinDate": "2024-07-19",
+    "address": {
+      "line_1": "350 Main St.",
+      "zip": "62406",
+      "city": "Austin",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 86,
+      "math": 63,
+      "french": 63,
+      "history": 70
+    }
+  },
+  {
+    "id": 103,
+    "name": "Nicholas Garcia",
+    "email": "nicholas.garcia@gmail.com",
+    "joinDate": "2021-02-11",
+    "address": {
+      "line_1": "34 Pine Ln.",
+      "zip": "88156",
+      "city": "Boston",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 80,
+      "math": 89,
+      "french": 59,
+      "history": 72
+    }
+  },
+  {
+    "id": 104,
+    "name": "David Fernández",
+    "email": "david.fernández@gmail.com",
+    "joinDate": "2024-05-17",
+    "address": {
+      "line_1": "834 Maple Ave.",
+      "zip": "85951",
+      "city": "Dallas",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 78,
+      "math": 85,
+      "french": 74,
+      "history": 63
+    }
+  },
+  {
+    "id": 105,
+    "name": "Abigail Hernandez",
+    "email": "abigail.hernandez@yahoo.com",
+    "joinDate": "2023-10-29",
+    "address": {
+      "line_1": "233 Pine Ln.",
+      "zip": "64069",
+      "city": "Nashville",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 68,
+      "math": 54,
+      "french": 52,
+      "history": 94
+    }
+  },
+  {
+    "id": 106,
+    "name": "Andrew Taylor",
+    "email": "andrew.taylor@gmail.com",
+    "joinDate": "2023-02-28",
+    "address": {
+      "line_1": "908 Pine Ln.",
+      "zip": "69179",
+      "city": "San Francisco",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 69,
+      "math": 59,
+      "french": 61,
+      "history": 79
+    }
+  },
+  {
+    "id": 107,
+    "name": "Samuel López",
+    "email": "samuel.lópez@gmail.com",
+    "joinDate": "2022-11-12",
+    "address": {
+      "line_1": "652 Oak St.",
+      "zip": "61263",
+      "city": "Los Angeles",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 58,
+      "math": 100,
+      "french": 60,
+      "history": 78
+    }
+  },
+  {
+    "id": 108,
+    "name": "Matthew Jansen",
+    "email": "matthew.jansen@outlook.com",
+    "joinDate": "2022-07-14",
+    "address": {
+      "line_1": "71 Maple Ave.",
+      "zip": "39060",
+      "city": "Memphis",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 63,
+      "math": 93,
+      "french": 93,
+      "history": 95
+    }
+  },
+  {
+    "id": 109,
+    "name": "Daniel Li",
+    "email": "daniel.li@yahoo.com",
+    "joinDate": "2021-08-04",
+    "address": {
+      "line_1": "34 Cedar Rd.",
+      "zip": "76775",
+      "city": "Chicago",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 73,
+      "math": 81,
+      "french": 92,
+      "history": 89
+    }
+  },
+  {
+    "id": 110,
+    "name": "Alexander Chen",
+    "email": "alexander.chen@aol.com",
+    "joinDate": "2022-03-11",
+    "address": {
+      "line_1": "937 Birch Dr.",
+      "zip": "35626",
+      "city": "Louisville",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 51,
+      "math": 63,
+      "french": 100,
+      "history": 92
+    }
+  },
+  {
+    "id": 111,
+    "name": "Joseph Gonzalez",
+    "email": "joseph.gonzalez@outlook.com",
+    "joinDate": "2021-04-10",
+    "address": {
+      "line_1": "365 Elm St.",
+      "zip": "25723",
+      "city": "Boston",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 51,
+      "math": 53,
+      "french": 83,
+      "history": 55
+    }
+  },
+  {
+    "id": 112,
+    "name": "Nicholas Wang",
+    "email": "nicholas.wang@gmail.com",
+    "joinDate": "2023-08-16",
+    "address": {
+      "line_1": "231 Birch Dr.",
+      "zip": "52137",
+      "city": "Detroit",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 89,
+      "math": 86,
+      "french": 84,
+      "history": 72
+    }
+  },
+  {
+    "id": 113,
+    "name": "Lily Mendoza",
+    "email": "lily.mendoza@yahoo.com",
+    "joinDate": "2023-12-30",
+    "address": {
+      "line_1": "731 Oak St.",
+      "zip": "32956",
+      "city": "Philadelphia",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 67,
+      "math": 81,
+      "french": 63,
+      "history": 92
+    }
+  },
+  {
+    "id": 114,
+    "name": "Benjamin Jones",
+    "email": "benjamin.jones@yahoo.com",
+    "joinDate": "2021-02-27",
+    "address": {
+      "line_1": "491 Elm St.",
+      "zip": "87349",
+      "city": "San Antonio",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 80,
+      "math": 61,
+      "french": 60,
+      "history": 94
+    }
+  },
+  {
+    "id": 115,
+    "name": "Grace Fernández",
+    "email": "grace.fernández@gmail.com",
+    "joinDate": "2021-11-18",
+    "address": {
+      "line_1": "165 Elm St.",
+      "zip": "47180",
+      "city": "Las Vegas",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 64,
+      "math": 89,
+      "french": 80,
+      "history": 50
+    }
+  },
+  {
+    "id": 116,
+    "name": "Benjamin Smith",
+    "email": "benjamin.smith@gmail.com",
+    "joinDate": "2022-02-23",
+    "address": {
+      "line_1": "288 Elm St.",
+      "zip": "35834",
+      "city": "New York",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 73,
+      "math": 61,
+      "french": 57,
+      "history": 72
+    }
+  },
+  {
+    "id": 117,
+    "name": "Daniel Jansen",
+    "email": "daniel.jansen@gmail.com",
+    "joinDate": "2022-11-26",
+    "address": {
+      "line_1": "97 Cedar Rd.",
+      "zip": "57166",
+      "city": "Nashville",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 63,
+      "math": 61,
+      "french": 63,
+      "history": 73
+    }
+  },
+  {
+    "id": 118,
+    "name": "Elizabeth Gomez",
+    "email": "elizabeth.gomez@outlook.com",
+    "joinDate": "2022-01-04",
+    "address": {
+      "line_1": "914 Cedar Rd.",
+      "zip": "81363",
+      "city": "San Diego",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 81,
+      "math": 73,
+      "french": 74,
+      "history": 96
+    }
+  },
+  {
+    "id": 119,
+    "name": "Sophia Wang",
+    "email": "sophia.wang@outlook.com",
+    "joinDate": "2024-04-21",
+    "address": {
+      "line_1": "152 Oak St.",
+      "zip": "77299",
+      "city": "Los Angeles",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 90,
+      "math": 54,
+      "french": 86,
+      "history": 86
+    }
+  },
+  {
+    "id": 120,
+    "name": "William Li",
+    "email": "william.li@outlook.com",
+    "joinDate": "2023-12-30",
+    "address": {
+      "line_1": "803 Cedar Rd.",
+      "zip": "32189",
+      "city": "Washington",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 81,
+      "math": 97,
+      "french": 69,
+      "history": 95
+    }
+  },
+  {
+    "id": 121,
+    "name": "Grace Smith",
+    "email": "grace.smith@outlook.com",
+    "joinDate": "2024-07-03",
+    "address": {
+      "line_1": "245 Oak St.",
+      "zip": "96398",
+      "city": "Boston",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 99,
+      "math": 63,
+      "french": 60,
+      "history": 65
+    }
+  },
+  {
+    "id": 122,
+    "name": "Lily Wang",
+    "email": "lily.wang@yahoo.com",
+    "joinDate": "2024-04-18",
+    "address": {
+      "line_1": "841 Oak St.",
+      "zip": "57656",
+      "city": "Oklahoma City",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 62,
+      "math": 62,
+      "french": 69,
+      "history": 77
+    }
+  },
+  {
+    "id": 123,
+    "name": "Alexander Sato",
+    "email": "alexander.sato@gmail.com",
+    "joinDate": "2022-11-18",
+    "address": {
+      "line_1": "443 Cedar Rd.",
+      "zip": "93969",
+      "city": "Los Angeles",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 63,
+      "math": 97,
+      "french": 60,
+      "history": 89
+    }
+  },
+  {
+    "id": 124,
+    "name": "Nicholas Taylor",
+    "email": "nicholas.taylor@gmail.com",
+    "joinDate": "2024-05-21",
+    "address": {
+      "line_1": "240 Oak St.",
+      "zip": "29219",
+      "city": "Las Vegas",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 59,
+      "math": 65,
+      "french": 90,
+      "history": 64
+    }
+  },
+  {
+    "id": 125,
+    "name": "Chloe Sato",
+    "email": "chloe.sato@outlook.com",
+    "joinDate": "2022-02-11",
+    "address": {
+      "line_1": "701 Oak St.",
+      "zip": "83162",
+      "city": "San Jose",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 78,
+      "math": 90,
+      "french": 65,
+      "history": 72
+    }
+  },
+  {
+    "id": 126,
+    "name": "Isabella Hernandez",
+    "email": "isabella.hernandez@gmail.com",
+    "joinDate": "2021-04-15",
+    "address": {
+      "line_1": "403 Maple Ave.",
+      "zip": "70440",
+      "city": "Columbus",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 97,
+      "math": 57,
+      "french": 99,
+      "history": 54
+    }
+  },
+  {
+    "id": 127,
+    "name": "Ava Hernandez",
+    "email": "ava.hernandez@outlook.com",
+    "joinDate": "2022-02-19",
+    "address": {
+      "line_1": "743 Main St.",
+      "zip": "29844",
+      "city": "Portland",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 74,
+      "math": 74,
+      "french": 58,
+      "history": 51
+    }
+  },
+  {
+    "id": 128,
+    "name": "Emily Chen",
+    "email": "emily.chen@aol.com",
+    "joinDate": "2023-03-26",
+    "address": {
+      "line_1": "484 Elm St.",
+      "zip": "61013",
+      "city": "Detroit",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 51,
+      "math": 94,
+      "french": 67,
+      "history": 50
+    }
+  },
+  {
+    "id": 129,
+    "name": "William Herrera",
+    "email": "william.herrera@aol.com",
+    "joinDate": "2024-03-01",
+    "address": {
+      "line_1": "991 Elm St.",
+      "zip": "52126",
+      "city": "Houston",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 80,
+      "math": 53,
+      "french": 66,
+      "history": 92
+    }
+  },
+  {
+    "id": 130,
+    "name": "Madison Gomez",
+    "email": "madison.gomez@aol.com",
+    "joinDate": "2024-02-24",
+    "address": {
+      "line_1": "959 Elm St.",
+      "zip": "75300",
+      "city": "Denver",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 92,
+      "math": 61,
+      "french": 53,
+      "history": 78
+    }
+  },
+  {
+    "id": 131,
+    "name": "John López",
+    "email": "john.lópez@outlook.com",
+    "joinDate": "2023-06-12",
+    "address": {
+      "line_1": "974 Elm St.",
+      "zip": "51744",
+      "city": "San Jose",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 76,
+      "math": 89,
+      "french": 58,
+      "history": 59
+    }
+  },
+  {
+    "id": 132,
+    "name": "Samuel Suzuki",
+    "email": "samuel.suzuki@yahoo.com",
+    "joinDate": "2023-02-21",
+    "address": {
+      "line_1": "901 Main St.",
+      "zip": "74851",
+      "city": "Seattle",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 59,
+      "math": 98,
+      "french": 51,
+      "history": 61
+    }
+  },
+  {
+    "id": 133,
+    "name": "Joseph Kim",
+    "email": "joseph.kim@aol.com",
+    "joinDate": "2024-04-15",
+    "address": {
+      "line_1": "113 Pine Ln.",
+      "zip": "89940",
+      "city": "Nashville",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 99,
+      "math": 93,
+      "french": 99,
+      "history": 93
+    }
+  },
+  {
+    "id": 134,
+    "name": "Emily Fernández",
+    "email": "emily.fernández@gmail.com",
+    "joinDate": "2023-07-07",
+    "address": {
+      "line_1": "532 Maple Ave.",
+      "zip": "21774",
+      "city": "New York",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 55,
+      "math": 72,
+      "french": 70,
+      "history": 72
+    }
+  },
+  {
+    "id": 135,
+    "name": "Matthew Taylor",
+    "email": "matthew.taylor@outlook.com",
+    "joinDate": "2024-05-07",
+    "address": {
+      "line_1": "565 Main St.",
+      "zip": "60052",
+      "city": "Austin",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 76,
+      "math": 93,
+      "french": 63,
+      "history": 67
+    }
+  },
+  {
+    "id": 136,
+    "name": "Emily Choi",
+    "email": "emily.choi@gmail.com",
+    "joinDate": "2023-03-25",
+    "address": {
+      "line_1": "992 Oak St.",
+      "zip": "93207",
+      "city": "Portland",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 79,
+      "math": 75,
+      "french": 63,
+      "history": 60
+    }
+  },
+  {
+    "id": 137,
+    "name": "Samuel Smith",
+    "email": "samuel.smith@outlook.com",
+    "joinDate": "2023-05-12",
+    "address": {
+      "line_1": "819 Pine Ln.",
+      "zip": "26192",
+      "city": "El Paso",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 97,
+      "math": 84,
+      "french": 73,
+      "history": 76
+    }
+  },
+  {
+    "id": 138,
+    "name": "Samuel Patel",
+    "email": "samuel.patel@gmail.com",
+    "joinDate": "2022-12-02",
+    "address": {
+      "line_1": "858 Cedar Rd.",
+      "zip": "74127",
+      "city": "Jacksonville",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 84,
+      "math": 56,
+      "french": 64,
+      "history": 78
+    }
+  },
+  {
+    "id": 139,
+    "name": "Samuel Lefebvre",
+    "email": "samuel.lefebvre@outlook.com",
+    "joinDate": "2021-10-26",
+    "address": {
+      "line_1": "104 Pine Ln.",
+      "zip": "97662",
+      "city": "Boston",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 71,
+      "math": 88,
+      "french": 54,
+      "history": 76
+    }
+  },
+  {
+    "id": 140,
+    "name": "Alexander Sato",
+    "email": "alexander.sato@aol.com",
+    "joinDate": "2024-03-23",
+    "address": {
+      "line_1": "777 Birch Dr.",
+      "zip": "20672",
+      "city": "Denver",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 100,
+      "math": 77,
+      "french": 60,
+      "history": 74
+    }
+  },
+  {
+    "id": 141,
+    "name": "Chloe Lee",
+    "email": "chloe.lee@gmail.com",
+    "joinDate": "2022-12-10",
+    "address": {
+      "line_1": "594 Birch Dr.",
+      "zip": "57538",
+      "city": "Jacksonville",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 100,
+      "math": 100,
+      "french": 84,
+      "history": 50
+    }
+  },
+  {
+    "id": 142,
+    "name": "Emma Hernandez",
+    "email": "emma.hernandez@gmail.com",
+    "joinDate": "2022-12-17",
+    "address": {
+      "line_1": "445 Oak St.",
+      "zip": "20524",
+      "city": "Fort Worth",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 92,
+      "math": 68,
+      "french": 51,
+      "history": 71
+    }
+  },
+  {
+    "id": 143,
+    "name": "Isabella Gupta",
+    "email": "isabella.gupta@gmail.com",
+    "joinDate": "2022-06-24",
+    "address": {
+      "line_1": "34 Birch Dr.",
+      "zip": "75328",
+      "city": "Boston",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 54,
+      "math": 88,
+      "french": 74,
+      "history": 97
+    }
+  },
+  {
+    "id": 144,
+    "name": "Nicholas Lam",
+    "email": "nicholas.lam@gmail.com",
+    "joinDate": "2024-10-04",
+    "address": {
+      "line_1": "164 Pine Ln.",
+      "zip": "44273",
+      "city": "Louisville",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 97,
+      "math": 55,
+      "french": 72,
+      "history": 73
+    }
+  },
+  {
+    "id": 145,
+    "name": "Joseph Gonzalez",
+    "email": "joseph.gonzalez@gmail.com",
+    "joinDate": "2024-04-01",
+    "address": {
+      "line_1": "272 Pine Ln.",
+      "zip": "32047",
+      "city": "Portland",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 84,
+      "math": 98,
+      "french": 56,
+      "history": 53
+    }
+  },
+  {
+    "id": 146,
+    "name": "Michael Gonzalez",
+    "email": "michael.gonzalez@outlook.com",
+    "joinDate": "2024-01-20",
+    "address": {
+      "line_1": "153 Cedar Rd.",
+      "zip": "10606",
+      "city": "Oklahoma City",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 63,
+      "math": 71,
+      "french": 78,
+      "history": 51
+    }
+  },
+  {
+    "id": 147,
+    "name": "Lily Williams",
+    "email": "lily.williams@gmail.com",
+    "joinDate": "2021-05-16",
+    "address": {
+      "line_1": "954 Oak St.",
+      "zip": "21598",
+      "city": "Las Vegas",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 81,
+      "math": 74,
+      "french": 80,
+      "history": 55
+    }
+  },
+  {
+    "id": 148,
+    "name": "Daniel Williams",
+    "email": "daniel.williams@aol.com",
+    "joinDate": "2022-10-24",
+    "address": {
+      "line_1": "502 Pine Ln.",
+      "zip": "50126",
+      "city": "San Jose",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 52,
+      "math": 98,
+      "french": 71,
+      "history": 51
+    }
+  },
+  {
+    "id": 149,
+    "name": "Samuel Patel",
+    "email": "samuel.patel@gmail.com",
+    "joinDate": "2023-12-11",
+    "address": {
+      "line_1": "816 Main St.",
+      "zip": "67179",
+      "city": "Austin",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 84,
+      "math": 87,
+      "french": 55,
+      "history": 89
+    }
+  },
+  {
+    "id": 150,
+    "name": "David López",
+    "email": "david.lópez@yahoo.com",
+    "joinDate": "2024-09-18",
+    "address": {
+      "line_1": "180 Maple Ave.",
+      "zip": "40393",
+      "city": "Chicago",
+      "country": "USA"
+    },
+    "grades": {
+      "literature": 90,
+      "math": 79,
+      "french": 94,
+      "history": 80
+    }
+  }
+]

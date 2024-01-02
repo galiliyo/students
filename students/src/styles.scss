@@ -1,0 +1,14 @@
+@import "assets/styles/flex-helpers";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  border: 5px solid green;
+height: 100vh}
+
+
+.page-container{
+  max-width: 1200px;
+   margin: 0 auto;
+  border: 1px solid red;
+  padding: 2rem 3rem;
+  flex:1;
+}
