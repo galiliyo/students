@@ -1,4 +1,4 @@
-import { Exam, SchoolSubject } from './interfaces/exams.interface';
+import { Exam } from './interfaces/exams.interface';
 import { Student } from './interfaces/student.interface';
 
 function getRandomInt(min: number, max: number) {
@@ -98,14 +98,14 @@ function generateRandomStudent(id: number): any {
 
 function generateExams(students: Student[]): Exam[] {
   const exams: Exam[] = [];
-  const subjects: SchoolSubject[] = ['literature', 'math', 'french', 'history'];
-  students.forEach((student) => {
-    subjects.forEach((subject) => {
+  const subjects = ['literature', 'math', 'french', 'history'];
+  students.forEach((student, Sindex) => {
+    subjects.forEach((subject, subIndex) => {
       exams.push({
         subject: subject,
         grade: getRandomInt(50, 100),
-        examId: `${student.id}-${subject.substring(0, 3)}`,
-        studentId: student.id.toString(),
+        id: Sindex * 100 + subIndex + 1,
+        studentId: student.id,
       });
     });
   });

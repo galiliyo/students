@@ -2,6 +2,8 @@
   <app-generic-table
     [columnDefs]="columnDefinitions"
     [data]="displayData"
+    (addRow)="newExam()"
+    (deleteRow)="deleteRow($event)"
     [pageSizeOptions]="[5, 10]"
     [selectedRowId]="selectedRowId"
     (selectedRowChange)="selectedRowChange($event)"
@@ -10,7 +12,9 @@
 </main>
 <div
   class="drawer-container"
-  [ngClass]="(selectedStudent$ | async) ? 'show' : 'show'"
+  [ngClass]="
+    (selectedStudent$ | async) || (showNewExamForm$ | async) ? 'show' : 'hide'
+  "
 >
   <app-exam-form [initialExamData$]="selectedStudent$"></app-exam-form>
 </div>

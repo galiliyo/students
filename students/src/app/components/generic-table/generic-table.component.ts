@@ -13,7 +13,8 @@ import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { NgClass, NgForOf } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 export interface ColumnDef {
   colId: string;
   header: string;
@@ -28,23 +29,28 @@ export interface ColumnDef {
     NgForOf,
     MatPaginatorModule,
     NgClass,
+    MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
 })
-export class GenericTableComponent implements OnInit, OnChanges, AfterViewInit {
+export class GenericTableComponent<T>
+  implements OnInit, OnChanges, AfterViewInit
+{
   @Input() columnDefs: ColumnDef[] = [];
   @Input() data: Record<string, any>[] = [];
-  @Input() selectedRowId: string | number | null = null;
+  @Input() selectedRowId: number | null = null;
   @Input() pageSizeOptions: number[] = [5, 10, 20];
   @Input() pageSize: number = 10;
   @Output() selectedRowChange = new EventEmitter<any>();
+  @Output() addRow = new EventEmitter<void>();
+  @Output() deleteRow = new EventEmitter<number>();
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
   @ViewChild(MatSort) sort: MatSort | null = null;
 
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   displayedColumns: string[] = [];
-  selectedRow: any;
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.data);
@@ -75,7 +81,6 @@ export class GenericTableComponent implements OnInit, OnChanges, AfterViewInit {
       property: string | number,
     ) => {
       console.log('sortData', item, property);
-      // You can add custom sorting logic here if necessary
       return item[property];
     };
     if (this.sort) {
@@ -85,5 +90,13 @@ export class GenericTableComponent implements OnInit, OnChanges, AfterViewInit {
 
   onRowClicked(row: any) {
     this.selectedRowChange.emit(row);
+  }
+
+  onNewRowClicked() {
+    this.addRow.emit();
+  }
+  onDeleteRowClicked(rowId: number | null) {
+    if (!rowId) return;
+    this.deleteRow.emit(rowId);
   }
 }

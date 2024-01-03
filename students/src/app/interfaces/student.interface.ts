@@ -11,4 +11,4 @@ export interface Student {
   };
 }
 
-export type NormalizedStudents = Map<string, Omit<Student, 'id'>>;
+export type NormalizedStudents = Map<number, Omit<Student, 'id'>>;

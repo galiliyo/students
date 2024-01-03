@@ -1,12 +1,10 @@
 import { Student } from './student.interface';
 
-export type SchoolSubject = 'literature' | 'math' | 'french' | 'history';
-
 export interface Exam {
-  subject: SchoolSubject;
+  subject: string;
   grade: number;
-  examId: string;
-  studentId: string;
+  id: number;
+  studentId: number;
 }
 
 export interface ExamWithStudentData extends Exam, Omit<Student, 'id'> {}

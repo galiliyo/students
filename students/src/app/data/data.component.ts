@@ -7,10 +7,12 @@ import {
 } from '../components/generic-table/generic-table.component';
 import { ExamWithStudentData } from '../interfaces/exams.interface';
 import { ExamsService } from '../exams.service';
-import { BehaviorSubject, combineLatest, skip } from 'rxjs';
+import { BehaviorSubject, combineLatest, skip, Subject } from 'rxjs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { ExamFormComponent } from './exam-form/exam-form.component';
+
+function newSubject<T>(b: boolean) {}
 
 @Component({
   selector: 'app-data',
@@ -28,7 +30,7 @@ import { ExamFormComponent } from './exam-form/exam-form.component';
 export class DataComponent implements OnInit {
   students: Student[] = [];
   displayData: ExamWithStudentData[] = []; // data to display in the table
-  selectedRowId: string | number | null = null;
+  selectedRowId: number | null = null;
 
   columnDefinitions: ColumnDef[] = [
     { colId: 'id', header: 'Exam ID', sortable: true },
@@ -40,6 +42,7 @@ export class DataComponent implements OnInit {
 
   private _selectedRow$ = new BehaviorSubject<ExamWithStudentData | null>(null);
   selectedStudent$ = this._selectedRow$.asObservable();
+  showNewExamForm$ = new BehaviorSubject<boolean>(false);
 
   constructor(
     private studentsService: StudentsService,
@@ -53,7 +56,6 @@ export class DataComponent implements OnInit {
     // Combine data from the examsService and studentsService observables using combineLatest.
     // We use skip(1) to wait for both observables to emit at least once before processing.
     // Once both observables emit, we map the exams and students data to create ExamWithStudentData objects.
-    // If a student is not found for an exam, default values are provided.
     // The merged data is assigned to the 'displayData' property.
     combineLatest([this.examsService.exams$, this.studentsService.students$])
       .pipe(skip(1))
@@ -77,15 +79,23 @@ export class DataComponent implements OnInit {
       });
 
     this._selectedRow$.subscribe((selectedRow) => {
-      this.selectedRowId = selectedRow?.examId || null;
+      this.selectedRowId = selectedRow?.id || null;
     });
   }
 
   selectedRowChange(e: ExamWithStudentData) {
-    if (e.examId === this.selectedRowId) {
+    if (e.id === this.selectedRowId) {
       this._selectedRow$.next(null);
       return;
     }
     this._selectedRow$.next(e);
+  }
+
+  newExam() {
+    this._selectedRow$.next(null);
+    this.showNewExamForm$.next(true);
+  }
+  deleteRow($event: number) {
+    this.examsService.deleteExam($event);
   }
 }

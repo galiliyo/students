@@ -1,4 +1,23 @@
 <div class="mat-elevation-z8 flex-1">
+  <div class="controls flex-row flex-justify-end">
+    <button
+      mat-icon-button
+      color="accent"
+      aria-label="Add Row button"
+      (click)="onNewRowClicked()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      color="warn"
+      aria-label="Delete Row button"
+      (click)="onDeleteRowClicked(selectedRowId)"
+      [disabled]="!selectedRowId"
+    >
+      <mat-icon>delete_outlined</mat-icon>
+    </button>
+  </div>
   <table mat-table [dataSource]="dataSource" matSort class="full-width-table">
     <ng-container *ngFor="let def of columnDefs" [matColumnDef]="def.colId">
       <th
