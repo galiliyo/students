@@ -3,7 +3,7 @@
     {
       "id": 101,
       "name": "Harper Fernández",
-      "email": "harper.fernández@gmail.com",
+      "email": "harper.fernandez@gmail.com",
       "joinDate": "2022-11-21",
       "address": {
         "line_1": "518 Maple Ave.",
@@ -243,7 +243,7 @@
     {
       "id": 121,
       "name": "Alexander Fernández",
-      "email": "alexander.fernández@aol.com",
+      "email": "alexander.fernandez@aol.com",
       "joinDate": "2024-11-15",
       "address": {
         "line_1": "445 Elm St.",
@@ -603,1203 +603,1203 @@
   ],
   "exams": [
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 54,
-      "examId": "101-lit",
+      "examId": "101-LIT",
       "studentId": 101
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 60,
-      "examId": "101-mat",
+      "examId": "101-MAT",
       "studentId": 101
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 58,
-      "examId": "101-fre",
+      "examId": "101-FRN",
       "studentId": 101
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 95,
-      "examId": "101-his",
+      "examId": "101-HST",
       "studentId": 101
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 51,
-      "examId": "102-lit",
+      "examId": "102-LIT",
       "studentId": 102
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 70,
-      "examId": "102-mat",
+      "examId": "102-MAT",
       "studentId": 102
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 51,
-      "examId": "102-fre",
+      "examId": "102-FRN",
       "studentId": 102
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 70,
-      "examId": "102-his",
+      "examId": "102-HST",
       "studentId": 102
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 81,
-      "examId": "103-lit",
+      "examId": "103-LIT",
       "studentId": 103
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 64,
-      "examId": "103-mat",
+      "examId": "103-MAT",
       "studentId": 103
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 96,
-      "examId": "103-fre",
+      "examId": "103-FRN",
       "studentId": 103
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 50,
-      "examId": "103-his",
+      "examId": "103-HST",
       "studentId": 103
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 71,
-      "examId": "104-lit",
+      "examId": "104-LIT",
       "studentId": 104
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 97,
-      "examId": "104-mat",
+      "examId": "104-MAT",
       "studentId": 104
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 82,
-      "examId": "104-fre",
+      "examId": "104-FRN",
       "studentId": 104
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 58,
-      "examId": "104-his",
+      "examId": "104-HST",
       "studentId": 104
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 51,
-      "examId": "105-lit",
+      "examId": "105-LIT",
       "studentId": 105
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 83,
-      "examId": "105-mat",
+      "examId": "105-MAT",
       "studentId": 105
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 87,
-      "examId": "105-fre",
+      "examId": "105-FRN",
       "studentId": 105
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 62,
-      "examId": "105-his",
+      "examId": "105-HST",
       "studentId": 105
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 73,
-      "examId": "106-lit",
+      "examId": "106-LIT",
       "studentId": 106
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 56,
-      "examId": "106-mat",
+      "examId": "106-MAT",
       "studentId": 106
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 57,
-      "examId": "106-fre",
+      "examId": "106-FRN",
       "studentId": 106
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 76,
-      "examId": "106-his",
+      "examId": "106-HST",
       "studentId": 106
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 71,
-      "examId": "107-lit",
+      "examId": "107-LIT",
       "studentId": 107
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 77,
-      "examId": "107-mat",
+      "examId": "107-MAT",
       "studentId": 107
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 95,
-      "examId": "107-fre",
+      "examId": "107-FRN",
       "studentId": 107
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 92,
-      "examId": "107-his",
+      "examId": "107-HST",
       "studentId": 107
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 62,
-      "examId": "108-lit",
+      "examId": "108-LIT",
       "studentId": 108
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 67,
-      "examId": "108-mat",
+      "examId": "108-MAT",
       "studentId": 108
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 96,
-      "examId": "108-fre",
+      "examId": "108-FRN",
       "studentId": 108
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 62,
-      "examId": "108-his",
+      "examId": "108-HST",
       "studentId": 108
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 50,
-      "examId": "109-lit",
+      "examId": "109-LIT",
       "studentId": 109
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 67,
-      "examId": "109-mat",
+      "examId": "109-MAT",
       "studentId": 109
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 97,
-      "examId": "109-fre",
+      "examId": "109-FRN",
       "studentId": 109
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 92,
-      "examId": "109-his",
+      "examId": "109-HST",
       "studentId": 109
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 65,
-      "examId": "110-lit",
+      "examId": "110-LIT",
       "studentId": 110
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 50,
-      "examId": "110-mat",
+      "examId": "110-MAT",
       "studentId": 110
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 95,
-      "examId": "110-fre",
+      "examId": "110-FRN",
       "studentId": 110
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 62,
-      "examId": "110-his",
+      "examId": "110-HST",
       "studentId": 110
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 100,
-      "examId": "111-lit",
+      "examId": "111-LIT",
       "studentId": 111
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 66,
-      "examId": "111-mat",
+      "examId": "111-MAT",
       "studentId": 111
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 82,
-      "examId": "111-fre",
+      "examId": "111-FRN",
       "studentId": 111
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 83,
-      "examId": "111-his",
+      "examId": "111-HST",
       "studentId": 111
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 63,
-      "examId": "112-lit",
+      "examId": "112-LIT",
       "studentId": 112
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 57,
-      "examId": "112-mat",
+      "examId": "112-MAT",
       "studentId": 112
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 94,
-      "examId": "112-fre",
+      "examId": "112-FRN",
       "studentId": 112
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 79,
-      "examId": "112-his",
+      "examId": "112-HST",
       "studentId": 112
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 57,
-      "examId": "113-lit",
+      "examId": "113-LIT",
       "studentId": 113
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 51,
-      "examId": "113-mat",
+      "examId": "113-MAT",
       "studentId": 113
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 93,
-      "examId": "113-fre",
+      "examId": "113-FRN",
       "studentId": 113
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 79,
-      "examId": "113-his",
+      "examId": "113-HST",
       "studentId": 113
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 99,
-      "examId": "114-lit",
+      "examId": "114-LIT",
       "studentId": 114
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 84,
-      "examId": "114-mat",
+      "examId": "114-MAT",
       "studentId": 114
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 84,
-      "examId": "114-fre",
+      "examId": "114-FRN",
       "studentId": 114
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 76,
-      "examId": "114-his",
+      "examId": "114-HST",
       "studentId": 114
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 85,
-      "examId": "115-lit",
+      "examId": "115-LIT",
       "studentId": 115
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 100,
-      "examId": "115-mat",
+      "examId": "115-MAT",
       "studentId": 115
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 74,
-      "examId": "115-fre",
+      "examId": "115-FRN",
       "studentId": 115
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 73,
-      "examId": "115-his",
+      "examId": "115-HST",
       "studentId": 115
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 55,
-      "examId": "116-lit",
+      "examId": "116-LIT",
       "studentId": 116
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 55,
-      "examId": "116-mat",
+      "examId": "116-MAT",
       "studentId": 116
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 77,
-      "examId": "116-fre",
+      "examId": "116-FRN",
       "studentId": 116
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 75,
-      "examId": "116-his",
+      "examId": "116-HST",
       "studentId": 116
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 67,
-      "examId": "117-lit",
+      "examId": "117-LIT",
       "studentId": 117
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 80,
-      "examId": "117-mat",
+      "examId": "117-MAT",
       "studentId": 117
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 91,
-      "examId": "117-fre",
+      "examId": "117-FRN",
       "studentId": 117
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 82,
-      "examId": "117-his",
+      "examId": "117-HST",
       "studentId": 117
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 56,
-      "examId": "118-lit",
+      "examId": "118-LIT",
       "studentId": 118
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 88,
-      "examId": "118-mat",
+      "examId": "118-MAT",
       "studentId": 118
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 78,
-      "examId": "118-fre",
+      "examId": "118-FRN",
       "studentId": 118
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 60,
-      "examId": "118-his",
+      "examId": "118-HST",
       "studentId": 118
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 80,
-      "examId": "119-lit",
+      "examId": "119-LIT",
       "studentId": 119
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 68,
-      "examId": "119-mat",
+      "examId": "119-MAT",
       "studentId": 119
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 84,
-      "examId": "119-fre",
+      "examId": "119-FRN",
       "studentId": 119
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 52,
-      "examId": "119-his",
+      "examId": "119-HST",
       "studentId": 119
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 75,
-      "examId": "120-lit",
+      "examId": "120-LIT",
       "studentId": 120
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 71,
-      "examId": "120-mat",
+      "examId": "120-MAT",
       "studentId": 120
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 72,
-      "examId": "120-fre",
+      "examId": "120-FRN",
       "studentId": 120
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 92,
-      "examId": "120-his",
+      "examId": "120-HST",
       "studentId": 120
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 76,
-      "examId": "121-lit",
+      "examId": "121-LIT",
       "studentId": 121
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 54,
-      "examId": "121-mat",
+      "examId": "121-MAT",
       "studentId": 121
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 94,
-      "examId": "121-fre",
+      "examId": "121-FRN",
       "studentId": 121
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 82,
-      "examId": "121-his",
+      "examId": "121-HST",
       "studentId": 121
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 76,
-      "examId": "122-lit",
+      "examId": "122-LIT",
       "studentId": 122
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 55,
-      "examId": "122-mat",
+      "examId": "122-MAT",
       "studentId": 122
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 63,
-      "examId": "122-fre",
+      "examId": "122-FRN",
       "studentId": 122
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 54,
-      "examId": "122-his",
+      "examId": "122-HST",
       "studentId": 122
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 55,
-      "examId": "123-lit",
+      "examId": "123-LIT",
       "studentId": 123
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 78,
-      "examId": "123-mat",
+      "examId": "123-MAT",
       "studentId": 123
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 87,
-      "examId": "123-fre",
+      "examId": "123-FRN",
       "studentId": 123
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 67,
-      "examId": "123-his",
+      "examId": "123-HST",
       "studentId": 123
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 96,
-      "examId": "124-lit",
+      "examId": "124-LIT",
       "studentId": 124
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 87,
-      "examId": "124-mat",
+      "examId": "124-MAT",
       "studentId": 124
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 58,
-      "examId": "124-fre",
+      "examId": "124-FRN",
       "studentId": 124
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 89,
-      "examId": "124-his",
+      "examId": "124-HST",
       "studentId": 124
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 58,
-      "examId": "125-lit",
+      "examId": "125-LIT",
       "studentId": 125
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 78,
-      "examId": "125-mat",
+      "examId": "125-MAT",
       "studentId": 125
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 68,
-      "examId": "125-fre",
+      "examId": "125-FRN",
       "studentId": 125
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 84,
-      "examId": "125-his",
+      "examId": "125-HST",
       "studentId": 125
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 78,
-      "examId": "126-lit",
+      "examId": "126-LIT",
       "studentId": 126
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 94,
-      "examId": "126-mat",
+      "examId": "126-MAT",
       "studentId": 126
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 85,
-      "examId": "126-fre",
+      "examId": "126-FRN",
       "studentId": 126
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 51,
-      "examId": "126-his",
+      "examId": "126-HST",
       "studentId": 126
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 80,
-      "examId": "127-lit",
+      "examId": "127-LIT",
       "studentId": 127
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 91,
-      "examId": "127-mat",
+      "examId": "127-MAT",
       "studentId": 127
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 52,
-      "examId": "127-fre",
+      "examId": "127-FRN",
       "studentId": 127
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 85,
-      "examId": "127-his",
+      "examId": "127-HST",
       "studentId": 127
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 58,
-      "examId": "128-lit",
+      "examId": "128-LIT",
       "studentId": 128
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 90,
-      "examId": "128-mat",
+      "examId": "128-MAT",
       "studentId": 128
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 87,
-      "examId": "128-fre",
+      "examId": "128-FRN",
       "studentId": 128
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 77,
-      "examId": "128-his",
+      "examId": "128-HST",
       "studentId": 128
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 76,
-      "examId": "129-lit",
+      "examId": "129-LIT",
       "studentId": 129
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 83,
-      "examId": "129-mat",
+      "examId": "129-MAT",
       "studentId": 129
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 65,
-      "examId": "129-fre",
+      "examId": "129-FRN",
       "studentId": 129
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 95,
-      "examId": "129-his",
+      "examId": "129-HST",
       "studentId": 129
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 51,
-      "examId": "130-lit",
+      "examId": "130-LIT",
       "studentId": 130
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 67,
-      "examId": "130-mat",
+      "examId": "130-MAT",
       "studentId": 130
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 66,
-      "examId": "130-fre",
+      "examId": "130-FRN",
       "studentId": 130
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 57,
-      "examId": "130-his",
+      "examId": "130-HST",
       "studentId": 130
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 90,
-      "examId": "131-lit",
+      "examId": "131-LIT",
       "studentId": 131
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 73,
-      "examId": "131-mat",
+      "examId": "131-MAT",
       "studentId": 131
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 79,
-      "examId": "131-fre",
+      "examId": "131-FRN",
       "studentId": 131
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 96,
-      "examId": "131-his",
+      "examId": "131-HST",
       "studentId": 131
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 94,
-      "examId": "132-lit",
+      "examId": "132-LIT",
       "studentId": 132
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 52,
-      "examId": "132-mat",
+      "examId": "132-MAT",
       "studentId": 132
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 100,
-      "examId": "132-fre",
+      "examId": "132-FRN",
       "studentId": 132
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 71,
-      "examId": "132-his",
+      "examId": "132-HST",
       "studentId": 132
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 85,
-      "examId": "133-lit",
+      "examId": "133-LIT",
       "studentId": 133
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 100,
-      "examId": "133-mat",
+      "examId": "133-MAT",
       "studentId": 133
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 86,
-      "examId": "133-fre",
+      "examId": "133-FRN",
       "studentId": 133
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 56,
-      "examId": "133-his",
+      "examId": "133-HST",
       "studentId": 133
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 89,
-      "examId": "134-lit",
+      "examId": "134-LIT",
       "studentId": 134
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 59,
-      "examId": "134-mat",
+      "examId": "134-MAT",
       "studentId": 134
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 61,
-      "examId": "134-fre",
+      "examId": "134-FRN",
       "studentId": 134
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 86,
-      "examId": "134-his",
+      "examId": "134-HST",
       "studentId": 134
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 51,
-      "examId": "135-lit",
+      "examId": "135-LIT",
       "studentId": 135
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 68,
-      "examId": "135-mat",
+      "examId": "135-MAT",
       "studentId": 135
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 97,
-      "examId": "135-fre",
+      "examId": "135-FRN",
       "studentId": 135
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 79,
-      "examId": "135-his",
+      "examId": "135-HST",
       "studentId": 135
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 96,
-      "examId": "136-lit",
+      "examId": "136-LIT",
       "studentId": 136
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 74,
-      "examId": "136-mat",
+      "examId": "136-MAT",
       "studentId": 136
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 70,
-      "examId": "136-fre",
+      "examId": "136-FRN",
       "studentId": 136
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 64,
-      "examId": "136-his",
+      "examId": "136-HST",
       "studentId": 136
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 90,
-      "examId": "137-lit",
+      "examId": "137-LIT",
       "studentId": 137
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 81,
-      "examId": "137-mat",
+      "examId": "137-MAT",
       "studentId": 137
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 87,
-      "examId": "137-fre",
+      "examId": "137-FRN",
       "studentId": 137
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 59,
-      "examId": "137-his",
+      "examId": "137-HST",
       "studentId": 137
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 85,
-      "examId": "138-lit",
+      "examId": "138-LIT",
       "studentId": 138
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 65,
-      "examId": "138-mat",
+      "examId": "138-MAT",
       "studentId": 138
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 77,
-      "examId": "138-fre",
+      "examId": "138-FRN",
       "studentId": 138
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 73,
-      "examId": "138-his",
+      "examId": "138-HST",
       "studentId": 138
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 66,
-      "examId": "139-lit",
+      "examId": "139-LIT",
       "studentId": 139
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 59,
-      "examId": "139-mat",
+      "examId": "139-MAT",
       "studentId": 139
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 65,
-      "examId": "139-fre",
+      "examId": "139-FRN",
       "studentId": 139
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 92,
-      "examId": "139-his",
+      "examId": "139-HST",
       "studentId": 139
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 74,
-      "examId": "140-lit",
+      "examId": "140-LIT",
       "studentId": 140
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 59,
-      "examId": "140-mat",
+      "examId": "140-MAT",
       "studentId": 140
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 50,
-      "examId": "140-fre",
+      "examId": "140-FRN",
       "studentId": 140
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 75,
-      "examId": "140-his",
+      "examId": "140-HST",
       "studentId": 140
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 52,
-      "examId": "141-lit",
+      "examId": "141-LIT",
       "studentId": 141
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 87,
-      "examId": "141-mat",
+      "examId": "141-MAT",
       "studentId": 141
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 77,
-      "examId": "141-fre",
+      "examId": "141-FRN",
       "studentId": 141
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 99,
-      "examId": "141-his",
+      "examId": "141-HST",
       "studentId": 141
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 96,
-      "examId": "142-lit",
+      "examId": "142-LIT",
       "studentId": 142
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 85,
-      "examId": "142-mat",
+      "examId": "142-MAT",
       "studentId": 142
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 54,
-      "examId": "142-fre",
+      "examId": "142-FRN",
       "studentId": 142
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 56,
-      "examId": "142-his",
+      "examId": "142-HST",
       "studentId": 142
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 89,
-      "examId": "143-lit",
+      "examId": "143-LIT",
       "studentId": 143
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 82,
-      "examId": "143-mat",
+      "examId": "143-MAT",
       "studentId": 143
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 92,
-      "examId": "143-fre",
+      "examId": "143-FRN",
       "studentId": 143
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 60,
-      "examId": "143-his",
+      "examId": "143-HST",
       "studentId": 143
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 98,
-      "examId": "144-lit",
+      "examId": "144-LIT",
       "studentId": 144
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 80,
-      "examId": "144-mat",
+      "examId": "144-MAT",
       "studentId": 144
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 92,
-      "examId": "144-fre",
+      "examId": "144-FRN",
       "studentId": 144
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 100,
-      "examId": "144-his",
+      "examId": "144-HST",
       "studentId": 144
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 95,
-      "examId": "145-lit",
+      "examId": "145-LIT",
       "studentId": 145
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 75,
-      "examId": "145-mat",
+      "examId": "145-MAT",
       "studentId": 145
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 95,
-      "examId": "145-fre",
+      "examId": "145-FRN",
       "studentId": 145
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 100,
-      "examId": "145-his",
+      "examId": "145-HST",
       "studentId": 145
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 52,
-      "examId": "146-lit",
+      "examId": "146-LIT",
       "studentId": 146
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 88,
-      "examId": "146-mat",
+      "examId": "146-MAT",
       "studentId": 146
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 72,
-      "examId": "146-fre",
+      "examId": "146-FRN",
       "studentId": 146
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 85,
-      "examId": "146-his",
+      "examId": "146-HST",
       "studentId": 146
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 88,
-      "examId": "147-lit",
+      "examId": "147-LIT",
       "studentId": 147
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 83,
-      "examId": "147-mat",
+      "examId": "147-MAT",
       "studentId": 147
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 84,
-      "examId": "147-fre",
+      "examId": "147-FRN",
       "studentId": 147
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 60,
-      "examId": "147-his",
+      "examId": "147-HST",
       "studentId": 147
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 51,
-      "examId": "148-lit",
+      "examId": "148-LIT",
       "studentId": 148
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 96,
-      "examId": "148-mat",
+      "examId": "148-MAT",
       "studentId": 148
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 88,
-      "examId": "148-fre",
+      "examId": "148-FRN",
       "studentId": 148
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 68,
-      "examId": "148-his",
+      "examId": "148-HST",
       "studentId": 148
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 83,
-      "examId": "149-lit",
+      "examId": "149-LIT",
       "studentId": 149
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 73,
-      "examId": "149-mat",
+      "examId": "149-MAT",
       "studentId": 149
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 96,
-      "examId": "149-fre",
+      "examId": "149-FRN",
       "studentId": 149
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 81,
-      "examId": "149-his",
+      "examId": "149-HST",
       "studentId": 149
     },
     {
-      "subject": "literature",
+      "subject": "Literature",
       "grade": 61,
-      "examId": "150-lit",
+      "examId": "150-LIT",
       "studentId": 150
     },
     {
-      "subject": "math",
+      "subject": "Math",
       "grade": 61,
-      "examId": "150-mat",
+      "examId": "150-MAT",
       "studentId": 150
     },
     {
-      "subject": "french",
+      "subject": "French",
       "grade": 67,
-      "examId": "150-fre",
+      "examId": "150-FRN",
       "studentId": 150
     },
     {
-      "subject": "history",
+      "subject": "History",
       "grade": 66,
-      "examId": "150-his",
+      "examId": "150-HST",
       "studentId": 150
     }
   ]

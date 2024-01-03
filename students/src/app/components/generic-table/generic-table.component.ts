@@ -52,7 +52,6 @@ export class GenericTableComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('GenericTableComponent', this.data);
     if (changes['data']) {
       this.dataSource = new MatTableDataSource(this.data);
       this.dataSource.paginator = this.paginator;

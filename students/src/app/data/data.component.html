@@ -10,7 +10,7 @@
 </main>
 <div
   class="drawer-container"
-  [ngClass]="!!selectedRowId || true ? 'show' : 'hide'"
+  [ngClass]="(selectedStudent$ | async) ? 'show' : 'hide'"
 >
-  <app-trainee-form traineeData="selectedTrainee$"></app-trainee-form>
+  <app-exam-form [initialExamData$]="selectedStudent$"></app-exam-form>
 </div>

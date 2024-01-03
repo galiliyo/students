@@ -1,36 +1,16 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { NormalizedStudents, Student } from '../interfaces/student.interface';
+import { Component, OnInit } from '@angular/core';
+import { Student } from '../interfaces/student.interface';
 import { StudentsService } from '../students.service';
 import {
   ColumnDef,
   GenericTableComponent,
 } from '../components/generic-table/generic-table.component';
-import {
-  Exam,
-  ExamWithStudentData,
-  SchoolSubject,
-} from '../interfaces/exams.interface';
+import { ExamWithStudentData } from '../interfaces/exams.interface';
 import { ExamsService } from '../exams.service';
-import {
-  BehaviorSubject,
-  combineLatest,
-  forkJoin,
-  Observable,
-  skip,
-  Subject,
-} from 'rxjs';
+import { BehaviorSubject, combineLatest, skip } from 'rxjs';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { NgClass } from '@angular/common';
-import { TraineeFormComponent } from './trainee-form/trainee-form.component';
-
-// interface StudentTableDisplayRow {
-//   studentId: number;
-//   name: string;
-//   date: string;
-//   subject: SchoolSubject;
-//   grade: number;
-// }
+import { AsyncPipe, NgClass } from '@angular/common';
+import { ExamFormComponent } from './exam-form/exam-form.component';
 
 @Component({
   selector: 'app-data',
@@ -39,13 +19,17 @@ import { TraineeFormComponent } from './trainee-form/trainee-form.component';
     GenericTableComponent,
     MatSidenavModule,
     NgClass,
-    TraineeFormComponent,
+    ExamFormComponent,
+    AsyncPipe,
   ],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent implements OnInit {
   students: Student[] = [];
+  displayData: ExamWithStudentData[] = []; // data to display in the table
+  selectedRowId: string | number | null = null;
+
   columnDefinitions: ColumnDef[] = [
     { colId: 'id', header: 'Exam ID', sortable: true },
     { colId: 'name', header: 'Name', sortable: true },
@@ -54,10 +38,8 @@ export class DataComponent implements OnInit {
     { colId: 'grade', header: 'Grade', sortable: true },
   ];
 
-  protected displayData: ExamWithStudentData[] = [];
   private _selectedRow$ = new BehaviorSubject<ExamWithStudentData | null>(null);
-  protected selectedTrainee$ = this._selectedRow$.asObservable();
-  protected selectedRowId: string | number | null = null;
+  selectedStudent$ = this._selectedRow$.asObservable();
 
   constructor(
     private studentsService: StudentsService,
@@ -74,11 +56,9 @@ export class DataComponent implements OnInit {
     // If a student is not found for an exam, default values are provided.
     // The merged data is assigned to the 'displayData' property.
     combineLatest([this.examsService.exams$, this.studentsService.students$])
-      .pipe(
-        skip(1), // Skip the initial emissions to wait for both observables to emit at least once
-      )
+      .pipe(skip(1))
       .subscribe(([exams, students]) => {
-        const joinedData: ExamWithStudentData[] = exams.map((exam) => {
+        this.displayData = exams?.map((exam) => {
           const student = students.get(exam.studentId);
 
           return {
@@ -95,7 +75,6 @@ export class DataComponent implements OnInit {
             },
           };
         });
-        this.displayData = joinedData;
       });
 
     this._selectedRow$.subscribe((selectedRow) => {
@@ -103,11 +82,11 @@ export class DataComponent implements OnInit {
     });
   }
 
-  selectedRowChange($event: ExamWithStudentData) {
-    if ($event.examId === this.selectedRowId) {
+  selectedRowChange(e: ExamWithStudentData) {
+    if (e.examId === this.selectedRowId) {
       this._selectedRow$.next(null);
       return;
     }
-    this._selectedRow$.next($event);
+    this._selectedRow$.next(e);
   }
 }
