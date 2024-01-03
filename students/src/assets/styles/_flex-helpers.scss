@@ -1,3 +1,5 @@
+@import "./mixins";
+
 /* Horizontal row layout */
 .flex-row {
   display: flex;
@@ -17,7 +19,6 @@
 .flex-justify-end {
   justify-content: flex-end;
 }
-
 
 .flex-align-center {
   align-items: center;
@@ -47,11 +48,14 @@
   flex-shrink: 1;
 }
 
-.flex-nowrap{
+.flex-nowrap {
   flex-wrap: nowrap;
 }
 
-
-.full-width{
+.full-width {
   width: 100%;
 }
+
+@include flex-classes(1, 5); // makes classes like flex-1, flex-2, etc.
+
+@include flex-gap(1, 3); // makes classes like gap-1, gap-2, etc.

@@ -10,7 +10,7 @@
 </main>
 <div
   class="drawer-container"
-  [ngClass]="(selectedStudent$ | async) ? 'show' : 'hide'"
+  [ngClass]="(selectedStudent$ | async) ? 'show' : 'show'"
 >
   <app-exam-form [initialExamData$]="selectedStudent$"></app-exam-form>
 </div>

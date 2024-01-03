@@ -105,7 +105,7 @@ function generateExams(students: Student[]): Exam[] {
         subject: subject,
         grade: getRandomInt(50, 100),
         examId: `${student.id}-${subject.substring(0, 3)}`,
-        studentId: student.id,
+        studentId: student.id.toString(),
       });
     });
   });

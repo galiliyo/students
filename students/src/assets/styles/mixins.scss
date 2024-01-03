@@ -1,0 +1,23 @@
+@mixin flex-classes($start: 1, $end: 5) {
+  @for $i from $start through $end {
+    .flex-#{$i} {
+      flex: $i;
+    }
+  }
+}
+
+@mixin flex-gap($start: 1, $end: 5) {
+  @for $i from $start through $end {
+    .gap-#{$i} {
+      gap: #{$i}rem;
+    }
+  }
+}
+
+@mixin margin-bottom-classes($start: 1, $end: 5) {
+  @for $i from $start through $end {
+    .mb-#{$i} {
+      margin-bottom: #{$i}rem;
+    }
+  }
+}

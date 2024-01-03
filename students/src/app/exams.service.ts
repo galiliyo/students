@@ -20,4 +20,11 @@ export class ExamsService {
       .get<Exam[]>(url)
       .subscribe((exams) => this._exams.next(exams));
   }
+
+  updateExam(exam: Exam) {
+    const url = `${environment.baseUrl}/exams/${exam.examId}`;
+    return this.httpClient.put(url, exam).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }

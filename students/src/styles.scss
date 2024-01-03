@@ -1,4 +1,5 @@
 @import "assets/styles/flex-helpers";
+@import "assets/styles/mixins";
 html,
 body {
   height: 100%;
@@ -17,3 +18,9 @@ body {
   padding: 6rem 2rem 3rem 2rem;
   flex: 1;
 }
+
+.color-white {
+  color: white;
+}
+
+@include margin-bottom-classes(1-4);

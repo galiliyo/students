@@ -4,7 +4,8 @@
 }
 .drawer-container {
   width: 0;
-  overflow: hidden;
+  overflow: auto;
+  scrollbar-gutter: stable;
   background: #3b4252;
   transition: width 0.15s ease-in-out;
   &.show {

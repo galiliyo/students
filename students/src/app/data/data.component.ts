@@ -63,7 +63,6 @@ export class DataComponent implements OnInit {
 
           return {
             ...exam,
-            id: exam.examId,
             name: student?.name || 'not found',
             email: student?.email || 'not found',
             joinDate: student?.joinDate || 'not found',
