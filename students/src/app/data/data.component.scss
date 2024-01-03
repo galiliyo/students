@@ -1,19 +1,13 @@
-:host{
-  flex:1
+:host {
+  display: flex;
+  height: 100%;
 }
-
-.drawer-container{
-  //height: calc(100% - 80px);
-  //width:400px;
-  //position: absolute;
-  //top: 60px;
-  //width:400px;
-
-
-}
-.side-nav{
-
-  //position: absolute;
-
-  background-color:blue
+.drawer-container {
+  width: 0;
+  overflow: hidden;
+  background: #3b4252;
+  transition: width 0.15s ease-in-out;
+  &.show {
+    width: 400px;
+  }
 }

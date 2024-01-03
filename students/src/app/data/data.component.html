@@ -1,22 +1,16 @@
-  <mat-sidenav-container [hasBackdrop]="false" class="drawer-container">
-    <main class="page-container">
-
-    <mat-sidenav position="end" mode="push" [opened]="!!selectedRowId"  class="side-nav" >
-
-      xxxsssss
-    </mat-sidenav>
-
-
-
+<main class="page-container">
   <app-generic-table
     [columnDefs]="columnDefinitions"
     [data]="displayData"
-    [pageSizeOptions]="[5, 10, 20]"
-    [pageSize]="10"
+    [pageSizeOptions]="[5, 10]"
     [selectedRowId]="selectedRowId"
     (selectedRowChange)="selectedRowChange($event)"
   >
   </app-generic-table>
-    </main>
-
-  </mat-sidenav-container>
+</main>
+<div
+  class="drawer-container"
+  [ngClass]="!!selectedRowId || true ? 'show' : 'hide'"
+>
+  <app-trainee-form traineeData="selectedTrainee$"></app-trainee-form>
+</div>

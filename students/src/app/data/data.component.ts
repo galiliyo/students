@@ -20,7 +20,9 @@ import {
   skip,
   Subject,
 } from 'rxjs';
-import {MatSidenavModule} from "@angular/material/sidenav";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NgClass } from '@angular/common';
+import { TraineeFormComponent } from './trainee-form/trainee-form.component';
 
 // interface StudentTableDisplayRow {
 //   studentId: number;
@@ -33,7 +35,12 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 @Component({
   selector: 'app-data',
   standalone: true,
-  imports: [GenericTableComponent, MatSidenavModule],
+  imports: [
+    GenericTableComponent,
+    MatSidenavModule,
+    NgClass,
+    TraineeFormComponent,
+  ],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
 })
@@ -49,6 +56,7 @@ export class DataComponent implements OnInit {
 
   protected displayData: ExamWithStudentData[] = [];
   private _selectedRow$ = new BehaviorSubject<ExamWithStudentData | null>(null);
+  protected selectedTrainee$ = this._selectedRow$.asObservable();
   protected selectedRowId: string | number | null = null;
 
   constructor(
