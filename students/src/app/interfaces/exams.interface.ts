@@ -1,10 +1,14 @@
-import { Student } from './student.interface';
-
 export interface Exam {
   subject: string;
   grade: number;
   id: number;
-  studentId: number;
+  name: string;
+  email: string;
+  joinDate: string;
+  address: {
+    line_1: string;
+    zip: string;
+    city: string;
+    country: string;
+  };
 }
-
-export interface ExamWithStudentData extends Exam, Omit<Student, 'id'> {}

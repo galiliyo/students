@@ -2,7 +2,7 @@
   <app-generic-table
     [columnDefs]="columnDefinitions"
     [data]="displayData"
-    (addRow)="newExam()"
+    (addRow)="openNewExamDrawer()"
     (deleteRow)="deleteRow($event)"
     [pageSizeOptions]="[5, 10]"
     [selectedRowId]="selectedRowId"
@@ -16,5 +16,8 @@
     (selectedStudent$ | async) || (showNewExamForm$ | async) ? 'show' : 'hide'
   "
 >
-  <app-exam-form [initialExamData$]="selectedStudent$"></app-exam-form>
+  <app-exam-form
+    [initialExamData$]="selectedStudent$"
+    (closeDrawer)="closeExamDrawer()"
+  ></app-exam-form>
 </div>

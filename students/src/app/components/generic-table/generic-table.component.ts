@@ -80,7 +80,6 @@ export class GenericTableComponent<T>
       item: { [x: string]: any },
       property: string | number,
     ) => {
-      console.log('sortData', item, property);
       return item[property];
     };
     if (this.sort) {

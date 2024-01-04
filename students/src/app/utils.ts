@@ -1,5 +1,4 @@
 import { Exam } from './interfaces/exams.interface';
-import { Student } from './interfaces/student.interface';
 
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -86,27 +85,30 @@ function generateRandomStudent(id: number): any {
   const first = randomFirstName.toLowerCase();
   const last = randomLastName.toLowerCase();
   const student = {
-    id: id,
     name: fullName,
     email: `${first}.${last}@${emailProviders[getRandomInt(0, 4)]}.com`,
-    joinDate: formatDateToYYYYMMDD(generateRandomDatePast3Years()),
+    joinDate: generateRandomDatePast3Years(),
     address: generateRandomUSAddress(),
   };
 
   return student;
 }
 
-function generateExams(students: Student[]): Exam[] {
+function generateExams(students: any[]): Exam[] {
+  let idCounter = 100;
   const exams: Exam[] = [];
   const subjects = ['literature', 'math', 'french', 'history'];
-  students.forEach((student, Sindex) => {
-    subjects.forEach((subject, subIndex) => {
-      exams.push({
+  students.forEach((student) => {
+    subjects.forEach((subject) => {
+      idCounter++;
+      console.log('idCounter', idCounter);
+      const newExam: Exam = {
         subject: subject,
-        grade: getRandomInt(50, 100),
-        id: Sindex * 100 + subIndex + 1,
-        studentId: student.id,
-      });
+        grade: Math.min(getNormallyDistributedRandomNumber(75, 20), 100),
+        id: idCounter,
+        ...student,
+      };
+      exams.push(newExam);
     });
   });
   return exams;
@@ -182,7 +184,7 @@ function generateRandomUSAddress(): Record<string, string> {
   return address;
 }
 
-function generateRandomDatePast3Years(): Date {
+function generateRandomDatePast3Years(): string {
   const currentDate: Date = new Date();
   const currentYear: number = currentDate.getFullYear();
   const minYear: number = currentYear - 3;
@@ -202,18 +204,25 @@ function generateRandomDatePast3Years(): Date {
       : Math.floor(Math.random() * 31);
 
   const randomDate: Date = new Date(randomYear, randomMonth, randomDay);
-  return randomDate;
+  return randomDate.toISOString();
 }
 
-function formatDateToYYYYMMDD(date: Date): string {
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
-  const day = date.getDate().toString().padStart(2, '0');
+function getNormallyDistributedRandomNumber(mean, stddev) {
+  function boxMullerTransform() {
+    const u1 = Math.random();
+    const u2 = Math.random();
 
-  return `${year}-${month}-${day}`;
+    const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+    const z1 = Math.sqrt(-2.0 * Math.log(u1)) * Math.sin(2.0 * Math.PI * u2);
+
+    return { z0, z1 };
+  }
+
+  const { z0, _ } = boxMullerTransform();
+
+  return Math.ceil(z0 * stddev + mean);
 }
-
-console.log(JSON.stringify(studentsArray, null, 2));
 
 console.log('++++++++++++++++++++++++++++++++++++++++++');
 console.log(JSON.stringify(generateExams(studentsArray), null, 2));
+// console.log(generateNubberArray());
