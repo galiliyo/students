@@ -1,1 +1,44 @@
-<p>analysis works!</p>
+<div class="page-container analysis-container">
+  <div class="visible-container">
+    <div
+      cdkDropList
+      #visibleList="cdkDropList"
+      [cdkDropListData]="{ items: visible, containerName: 'visible' }"
+      cdkDropListOrientation="horizontal"
+      [cdkDropListConnectedTo]="[hiddenList]"
+      class="visible-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of visible; track item) {
+        <div class="visible-box" cdkDrag>
+          <ng-container
+            *ngTemplateOutlet="
+              dynamicComponent;
+              context: { $implicit: getComponent(item) }
+            "
+          ></ng-container>
+          <!--          <div *cdkDragPreview class="cdk-drag-preview">{{ item }}</div>-->
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="example-container">
+    <div
+      cdkDropList
+      #hiddenList="cdkDropList"
+      [cdkDropListData]="{ items: hidden, containerName: 'hidden' }"
+      [cdkDropListConnectedTo]="[visibleList]"
+      class="hidden-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of hidden; track item) {
+        <div class="hidden-box" cdkDrag>{{ item }}</div>
+      }
+    </div>
+  </div>
+
+  <ng-template #dynamicComponent let-componentType>
+    <ng-container *ngComponentOutlet="componentType"></ng-container>
+  </ng-template>
+</div>

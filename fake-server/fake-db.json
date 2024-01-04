@@ -2,21 +2,7 @@
   "exams": [
     {
       "subject": "math",
-      "grade": 42,
-      "name": "Abigail Singh",
-      "email": "abigail.singh@gmail.com",
-      "joinDate": "2021-07-06",
-      "address": {
-        "line_1": "416 Pine Ln.",
-        "zip": "96562",
-        "city": "Charlotte",
-        "country": "USA"
-      },
-      "id": 102
-    },
-    {
-      "subject": "math",
-      "grade": 0,
+      "grade": 11,
       "name": "Michael Cohen",
       "email": "michael.cohen@yahoo.com",
       "joinDate": "2023-02-28",
@@ -44,7 +30,7 @@
     },
     {
       "subject": "history",
-      "grade": 53,
+      "grade": 55,
       "name": "Michael x",
       "email": "michael.cohen@yahoo.com",
       "joinDate": "2023-02-28",
@@ -72,31 +58,31 @@
     },
     {
       "subject": "math",
-      "grade": 74,
-      "id": 114,
+      "grade": 79,
       "name": "Daniel Williams",
       "email": "daniel.williams@gmail.com",
-      "joinDate": "2023-05-27T21:00:00.000Z",
+      "joinDate": "2023-05-27",
       "address": {
         "line_1": "727 Maple Ave.",
         "zip": "84608",
         "city": "San Francisco",
         "country": "USA"
-      }
+      },
+      "id": 114
     },
     {
       "subject": "french",
-      "grade": 96,
-      "id": 115,
+      "grade": 97,
       "name": "Daniel Williams",
       "email": "daniel.williams@gmail.com",
-      "joinDate": "2023-05-27T21:00:00.000Z",
+      "joinDate": "2023-05-27",
       "address": {
         "line_1": "727 Maple Ave.",
         "zip": "84608",
         "city": "San Francisco",
         "country": "USA"
-      }
+      },
+      "id": 115
     },
     {
       "subject": "history",
@@ -298,20 +284,6 @@
       "subject": "math",
       "grade": 84,
       "id": 130,
-      "name": "Emma Choi",
-      "email": "emma.choi@yahoo.com",
-      "joinDate": "2021-04-21T21:00:00.000Z",
-      "address": {
-        "line_1": "778 Maple Ave.",
-        "zip": "60685",
-        "city": "Seattle",
-        "country": "USA"
-      }
-    },
-    {
-      "subject": "french",
-      "grade": 59,
-      "id": 131,
       "name": "Emma Choi",
       "email": "emma.choi@yahoo.com",
       "joinDate": "2021-04-21T21:00:00.000Z",

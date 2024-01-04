@@ -55,10 +55,6 @@ export class DataComponent implements OnInit {
       this.selectedRowId = selectedRow?.id || null;
       console.log('_selectedRow$', selectedRow);
     });
-
-    // this.showNewExamForm$.subscribe((showNewExamForm) => {
-    //   console.log('showNewExamForm', showNewExamForm);
-    // });
   }
 
   selectedRowChange(newSelectedRow: Exam) {

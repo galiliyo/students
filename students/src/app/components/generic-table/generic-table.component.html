@@ -5,6 +5,7 @@
       color="accent"
       aria-label="Add Row button"
       (click)="onNewRowClicked()"
+      [disabled]="!!selectedRowId"
     >
       <mat-icon>add</mat-icon>
     </button>
