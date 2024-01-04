@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   CdkDrag,
   CdkDragDrop,
@@ -19,6 +19,9 @@ import {
   NgSwitchCase,
   NgTemplateOutlet,
 } from '@angular/common';
+import { Exam } from '../interfaces/exams.interface';
+import { ExamsService } from '../exams.service';
+import { LogicalFileSystem } from '@angular/compiler-cli';
 
 @Component({
   selector: 'app-analysis',
@@ -39,7 +42,16 @@ import {
   templateUrl: './analysis.component.html',
   styleUrl: './analysis.component.scss',
 })
-export class AnalysisComponent {
+export class AnalysisComponent implements OnInit {
+  constructor(protected examsService: ExamsService) {}
+
+  ngOnInit(): void {
+    this.examsService.exams$.subscribe((exams) => {
+      this.examsData = exams;
+      console.log('examsData', this.examsData);
+    });
+  }
+
   components = {
     student: ChartStudentComponent,
     subject: ChartSubjectComponent,
@@ -47,8 +59,9 @@ export class AnalysisComponent {
   };
 
   visible = ['subject', 'student'];
-
   hidden = ['time'];
+
+  examsData: any = this.examsService.exams$;
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
