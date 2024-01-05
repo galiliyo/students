@@ -15,11 +15,11 @@
       "id": 110
     },
     {
-      "subject": "french",
+      "subject": "loof",
       "grade": 59,
       "name": "Michael Cohen",
       "email": "michael.cohen@yahoo.com",
-      "joinDate": "2023-02-07T22:00:00.000Z",
+      "joinDate": "2023-02-07",
       "address": {
         "line_1": "138 Oak St.",
         "zip": "16884",
