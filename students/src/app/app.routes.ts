@@ -8,7 +8,7 @@ export const routes: Routes = [
   { path: 'analysis', component: AnalysisComponent },
   { path: 'monitor', component: MonitorComponent },
   // default route
-  { path: '', redirectTo: '/averages', pathMatch: 'full' },
+  { path: '', redirectTo: '/data', pathMatch: 'full' },
   // wildcard route for handling unknown routes
-  { path: '**', redirectTo: '/averages' },
+  { path: '**', redirectTo: '/data' },
 ];
