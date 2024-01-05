@@ -1,3 +1,4 @@
+// generate flex classes - ie flex-1: 1rem
 @mixin flex-classes($start: 1, $end: 5) {
   @for $i from $start through $end {
     .flex-#{$i} {
