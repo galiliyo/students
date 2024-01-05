@@ -3,11 +3,8 @@ import {
   CdkDrag,
   CdkDragDrop,
   CdkDragPreview,
-  CdkDragRelease,
-  CdkDragStart,
   CdkDropList,
   moveItemInArray,
-  transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { ChartStudentComponent } from './chart-student/chart-student.component';
 import { ChartSubjectComponent } from './chart-subject/chart-subject.component';
@@ -19,9 +16,8 @@ import {
   NgSwitchCase,
   NgTemplateOutlet,
 } from '@angular/common';
-import { Exam } from '../interfaces/exams.interface';
 import { ExamsService } from '../exams.service';
-import { LogicalFileSystem } from '@angular/compiler-cli';
+import { ChartDataService } from './chart-data.service';
 
 @Component({
   selector: 'app-analysis',
@@ -43,30 +39,37 @@ import { LogicalFileSystem } from '@angular/compiler-cli';
   styleUrl: './analysis.component.scss',
 })
 export class AnalysisComponent implements OnInit {
-  constructor(protected examsService: ExamsService) {}
-
-  ngOnInit(): void {
-    this.examsService.exams$.subscribe((exams) => {
-      this.examsData = exams;
-      console.log('examsData', this.examsData);
-    });
-  }
-
   components = {
     student: ChartSubjectComponent,
     subject: ChartSubjectComponent,
     time: ChartSubjectComponent,
   };
+  visible = ['subject', 'student'];
+  hidden = ['time'];
   // components = {
   //   student: ChartStudentComponent,
   //   subject: ChartSubjectComponent,
   //   time: ChartTimeComponent,
   // };
-
-  visible = ['subject', 'student'];
-  hidden = ['time'];
-
   examsData: any = this.examsService.exams$;
+
+  constructor(
+    protected examsService: ExamsService,
+    public chartDataService: ChartDataService,
+  ) {}
+
+  ngOnInit(): void {
+    this.examsService.exams$.subscribe((exams) => {
+      this.examsData = exams;
+
+      // set averages for subject averages chart
+      this.chartDataService.generateSubjectAveragesData({
+        exams,
+        selectedSubjects: [],
+        selectedStudents: [],
+      });
+    });
+  }
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {

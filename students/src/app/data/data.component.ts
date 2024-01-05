@@ -4,7 +4,7 @@ import {
   GenericTableComponent,
 } from '../components/generic-table/generic-table.component';
 import { ExamsService } from '../exams.service';
-import { BehaviorSubject, combineLatest, skip, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { ExamFormComponent } from './exam-form/exam-form.component';
@@ -13,7 +13,7 @@ import { Exam } from '../interfaces/exams.interface';
 function newSubject<T>(b: boolean) {}
 
 @Component({
-  selector: 'app-data',
+  selector: 'app-averages',
   standalone: true,
   imports: [
     GenericTableComponent,
@@ -26,7 +26,7 @@ function newSubject<T>(b: boolean) {}
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent implements OnInit {
-  displayData: Exam[] = []; // data to display in the table
+  displayData: Exam[] = []; // averages to display in the table
   selectedRowId: number | null = null;
 
   columnDefinitions: ColumnDef[] = [
@@ -36,10 +36,9 @@ export class DataComponent implements OnInit {
     { colId: 'subject', header: 'Subject', sortable: true },
     { colId: 'grade', header: 'Grade', sortable: true },
   ];
-
+  showNewExamForm$ = new BehaviorSubject<boolean>(false);
   private _selectedRow$ = new BehaviorSubject<Exam | null>(null);
   selectedStudent$ = this._selectedRow$.asObservable();
-  showNewExamForm$ = new BehaviorSubject<boolean>(false);
 
   constructor(private examsService: ExamsService) {}
 
@@ -47,7 +46,7 @@ export class DataComponent implements OnInit {
     this.examsService.loadExams();
 
     this.examsService.exams$.subscribe((exams) => {
-      this.displayData = exams?.map((exam) => formatExamData(exam));
+      this.displayData = exams?.map((exam) => formatExamDate(exam));
     });
 
     //todo: unsubscribe
@@ -83,6 +82,6 @@ export class DataComponent implements OnInit {
   }
 }
 
-function formatExamData(exam: Exam) {
+function formatExamDate(exam: Exam) {
   return { ...exam, joinDate: exam.joinDate.split('T')[0] };
 }
