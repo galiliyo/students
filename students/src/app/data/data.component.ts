@@ -52,7 +52,6 @@ export class DataComponent implements OnInit {
     //todo: unsubscribe
     this._selectedRow$.subscribe((selectedRow) => {
       this.selectedRowId = selectedRow?.id || null;
-      console.log('_selectedRow$', selectedRow);
     });
   }
 

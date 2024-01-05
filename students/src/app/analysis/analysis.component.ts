@@ -40,12 +40,12 @@ import { ChartDataService } from './chart-data.service';
 })
 export class AnalysisComponent implements OnInit {
   components = {
-    student: ChartSubjectComponent,
-    subject: ChartSubjectComponent,
+    ['Student Avg']: ChartStudentComponent,
+    ['Subject Avg']: ChartSubjectComponent,
     time: ChartSubjectComponent,
   };
-  visible = ['subject', 'student'];
-  hidden = ['time'];
+  visible = ['Subject Avg', 'Student Avg'];
+  hidden = ['Time'];
   // components = {
   //   student: ChartStudentComponent,
   //   subject: ChartSubjectComponent,
@@ -64,6 +64,11 @@ export class AnalysisComponent implements OnInit {
 
       // set averages for subject averages chart
       this.chartDataService.generateSubjectAveragesData({
+        exams,
+        selectedSubjects: [],
+        selectedStudents: [],
+      }); // set averages for subject averages chart
+      this.chartDataService.generateStudentAveragesData({
         exams,
         selectedSubjects: [],
         selectedStudents: [],

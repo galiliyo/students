@@ -101,7 +101,6 @@ function generateExams(students: any[]): Exam[] {
   students.forEach((student) => {
     subjects.forEach((subject) => {
       idCounter++;
-      console.log('idCounter', idCounter);
       const newExam: Exam = {
         subject: subject,
         grade: Math.min(getNormallyDistributedRandomNumber(75, 20), 100),
