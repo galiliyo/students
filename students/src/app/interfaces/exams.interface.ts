@@ -3,6 +3,7 @@ export interface Exam {
   grade: number;
   id: number;
   name: string;
+  studentId: number;
   email: string;
   joinDate: string;
   address: {

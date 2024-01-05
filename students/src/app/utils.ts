@@ -1,10 +1,33 @@
-import { Exam } from './interfaces/exams.interface';
+//ts-ignore
 
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function generateRandomStudent(id: number): any {
+const subjectsAndDates = [
+  {
+    subject: 'Literature',
+    dates: ['jan 10 2023', 'may 5 2023', 'september 2 2023'],
+  },
+  {
+    subject: 'Math',
+    dates: ['jan 14 2023', 'may 12 2023', 'september 6 2023'],
+  },
+  {
+    subject: 'French',
+    dates: ['jan 20 2023', 'may 18 2023', 'september 10 2023'],
+  },
+  {
+    subject: 'History',
+    dates: ['jan 24 2023', 'may 20 2023', 'september 14 2023'],
+  },
+  {
+    subject: 'Biology',
+    dates: ['jan 28 2023', 'may 24 2023', 'september 18 2023'],
+  },
+];
+
+function generateRandomStudent(): any {
   const firstNames = [
     'John',
     'Emma',
@@ -52,7 +75,7 @@ function generateRandomStudent(id: number): any {
     'Gonzalez',
     'Li',
     'Patel',
-    'López',
+    'Lopez',
     'Cohen',
     'Taylor',
     'Hernandez',
@@ -62,7 +85,7 @@ function generateRandomStudent(id: number): any {
     'Lee',
     'Rodriguez',
     'Jones',
-    'Fernández',
+    'Fernandez',
     'Johnson',
     'Suzuki',
     'Gomez',
@@ -87,36 +110,58 @@ function generateRandomStudent(id: number): any {
   const student = {
     name: fullName,
     email: `${first}.${last}@${emailProviders[getRandomInt(0, 4)]}.com`,
-    joinDate: generateRandomDatePast3Years(),
     address: generateRandomUSAddress(),
+    studentId: Math.floor(Math.random() * 10000),
   };
 
   return student;
 }
 
-function generateExams(students: any[]): Exam[] {
-  let idCounter = 100;
-  const exams: Exam[] = [];
-  const subjects = ['literature', 'math', 'french', 'history'];
-  students.forEach((student) => {
-    subjects.forEach((subject) => {
-      idCounter++;
-      const newExam: Exam = {
-        subject: subject,
-        grade: Math.min(getNormallyDistributedRandomNumber(75, 20), 100),
-        id: idCounter,
-        ...student,
-      };
-      exams.push(newExam);
+// Function to generate random exams for students
+function generateRandomExams() {
+  const exams: {
+    id: number;
+    studentId: number;
+    subject: any;
+    grade: number;
+    name: any;
+    email: any;
+    joinDate: any;
+    address: any;
+  }[] = [];
+  let examId = 100;
+
+  for (let i = 1; i <= 15; i++) {
+    const student = generateRandomStudent();
+
+    // @ts-ignore
+    subjectsAndDates.forEach(({ subject, dates }) => {
+      dates.forEach((date: any) => {
+        const grade = Math.min(
+          100,
+          Math.floor(getNormallyDistributedRandomNumber(70, 20)),
+        ); // Generate a random grade between 0 and 100
+        exams.push({
+          id: examId++,
+          subject,
+          grade,
+          studentId: student.studentId,
+          name: student.name,
+          email: student.email,
+          joinDate: new Date(date).toISOString(),
+          address: student.address,
+        });
+      });
     });
-  });
+  }
+
   return exams;
 }
 
-const studentsArray = [];
-for (let id = 101; id <= 150; id++) {
-  studentsArray.push(generateRandomStudent(id));
-}
+// const studentsArray = [];
+// for (let id = 101; id <= 150; id++) {
+//   studentsArray.push(generateRandomStudent(id));
+// }
 
 function generateRandomUSAddress(): Record<string, string> {
   const usCities: string[] = [
@@ -183,30 +228,30 @@ function generateRandomUSAddress(): Record<string, string> {
   return address;
 }
 
-function generateRandomDatePast3Years(): string {
-  const currentDate: Date = new Date();
-  const currentYear: number = currentDate.getFullYear();
-  const minYear: number = currentYear - 3;
-  const maxMonth: number = currentDate.getMonth();
-  const minMonth: number =
-    maxMonth === 0 ? 0 : Math.floor(Math.random() * (maxMonth + 1));
-  const maxDay: number = currentDate.getDate();
-  const minDay: number = Math.floor(Math.random() * (maxDay + 1));
+// function generateRandomDatePast3Years(): string {
+//   const currentDate: Date = new Date();
+//   const currentYear: number = currentDate.getFullYear();
+//   const minYear: number = currentYear - 3;
+//   const maxMonth: number = currentDate.getMonth();
+//   const minMonth: number =
+//     maxMonth === 0 ? 0 : Math.floor(Math.random() * (maxMonth + 1));
+//   const maxDay: number = currentDate.getDate();
+//   const minDay: number = Math.floor(Math.random() * (maxDay + 1));
+//
+//   const randomYear: number =
+//     Math.floor(Math.random() * (currentYear - minYear + 1)) + minYear;
+//   const randomMonth: number =
+//     minYear === currentYear ? minMonth : Math.floor(Math.random() * 12);
+//   const randomDay: number =
+//     minYear === currentYear && randomMonth === maxMonth
+//       ? minDay
+//       : Math.floor(Math.random() * 31);
+//
+//   const randomDate: Date = new Date(randomYear, randomMonth, randomDay);
+//   return randomDate.toISOString();
+// }
 
-  const randomYear: number =
-    Math.floor(Math.random() * (currentYear - minYear + 1)) + minYear;
-  const randomMonth: number =
-    minYear === currentYear ? minMonth : Math.floor(Math.random() * 12);
-  const randomDay: number =
-    minYear === currentYear && randomMonth === maxMonth
-      ? minDay
-      : Math.floor(Math.random() * 31);
-
-  const randomDate: Date = new Date(randomYear, randomMonth, randomDay);
-  return randomDate.toISOString();
-}
-
-function getNormallyDistributedRandomNumber(mean, stddev) {
+function getNormallyDistributedRandomNumber(mean: number, stddev: number) {
   function boxMullerTransform() {
     const u1 = Math.random();
     const u2 = Math.random();
@@ -217,11 +262,11 @@ function getNormallyDistributedRandomNumber(mean, stddev) {
     return { z0, z1 };
   }
 
-  const { z0, _ } = boxMullerTransform();
+  const { z0, z1 } = boxMullerTransform();
 
   return Math.ceil(z0 * stddev + mean);
 }
 
 console.log('++++++++++++++++++++++++++++++++++++++++++');
-console.log(JSON.stringify(generateExams(studentsArray), null, 2));
+console.log(JSON.stringify(generateRandomExams(), null, 2));
 // console.log(generateNubberArray());

@@ -42,10 +42,10 @@ export class AnalysisComponent implements OnInit {
   components = {
     ['Student Avg']: ChartStudentComponent,
     ['Subject Avg']: ChartSubjectComponent,
-    time: ChartSubjectComponent,
+    Time: ChartTimeComponent,
   };
-  visible = ['Subject Avg', 'Student Avg'];
-  hidden = ['Time'];
+  visible = ['Student Avg', 'Time'];
+  hidden = ['Subject Avg'];
   // components = {
   //   student: ChartStudentComponent,
   //   subject: ChartSubjectComponent,
