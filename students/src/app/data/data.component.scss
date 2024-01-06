@@ -1,12 +1,16 @@
+@import "./../../assets/styles/variables.scss";
+
 :host {
   display: flex;
   height: 100%;
 }
+
 .drawer-container {
   width: 0;
   overflow: auto;
+  overflow-x: hidden;
   scrollbar-gutter: stable;
-  background: #3b4252;
+  background: $gray-dark;
   transition: width 0.15s ease-in-out;
   &.show {
     width: 400px;

@@ -8,10 +8,10 @@ import { Exam } from './interfaces/exams.interface';
   providedIn: 'root',
 })
 export class ExamsService {
-  constructor(public httpClient: HttpClient) {}
-
   private _exams = new BehaviorSubject<Exam[] | null>(null);
   public exams$ = this._exams as Observable<Exam[]>;
+
+  constructor(public httpClient: HttpClient) {}
 
   loadExams(): void {
     const url = `${environment.baseUrl}/exams`;
@@ -19,7 +19,7 @@ export class ExamsService {
       .get<Exam[]>(url)
       .subscribe((exams) => this._exams.next(exams));
   }
-
+  // todo: load
   updateExam(id: number, exam: Exam) {
     const url = `${environment.baseUrl}/exams/${id}`;
     try {

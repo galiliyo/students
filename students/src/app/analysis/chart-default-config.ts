@@ -1,6 +1,6 @@
 import { ApexOptions } from 'ng-apexcharts/lib/model/apex-types';
 
-export const chartDefaultOptions: Partial<ApexOptions> = {
+export const defaultChartOptions: Partial<ApexOptions> = {
   theme: { mode: 'dark' },
   plotOptions: {
     bar: {
@@ -20,6 +20,7 @@ export const chartDefaultOptions: Partial<ApexOptions> = {
     offsetX: 20,
     width: '94%',
     type: 'bar',
+    background: 'transparent',
   },
   title: {
     text: 'Averages per Student',

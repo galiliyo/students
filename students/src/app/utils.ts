@@ -1,5 +1,14 @@
-//ts-ignore
+function shortenName(name: string): string {
+  const names = name.split(' ');
+  if (names.length > 1) {
+    return `${names[0]} ${names[names.length - 1].charAt(0)}.`;
+  }
+  return name;
+}
 
+export { shortenName };
+
+// manual db data point creation
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -158,11 +167,6 @@ function generateRandomExams() {
   return exams;
 }
 
-// const studentsArray = [];
-// for (let id = 101; id <= 150; id++) {
-//   studentsArray.push(generateRandomStudent(id));
-// }
-
 function generateRandomUSAddress(): Record<string, string> {
   const usCities: string[] = [
     'New York',
@@ -227,29 +231,6 @@ function generateRandomUSAddress(): Record<string, string> {
 
   return address;
 }
-
-// function generateRandomDatePast3Years(): string {
-//   const currentDate: Date = new Date();
-//   const currentYear: number = currentDate.getFullYear();
-//   const minYear: number = currentYear - 3;
-//   const maxMonth: number = currentDate.getMonth();
-//   const minMonth: number =
-//     maxMonth === 0 ? 0 : Math.floor(Math.random() * (maxMonth + 1));
-//   const maxDay: number = currentDate.getDate();
-//   const minDay: number = Math.floor(Math.random() * (maxDay + 1));
-//
-//   const randomYear: number =
-//     Math.floor(Math.random() * (currentYear - minYear + 1)) + minYear;
-//   const randomMonth: number =
-//     minYear === currentYear ? minMonth : Math.floor(Math.random() * 12);
-//   const randomDay: number =
-//     minYear === currentYear && randomMonth === maxMonth
-//       ? minDay
-//       : Math.floor(Math.random() * 31);
-//
-//   const randomDate: Date = new Date(randomYear, randomMonth, randomDay);
-//   return randomDate.toISOString();
-// }
 
 function getNormallyDistributedRandomNumber(mean: number, stddev: number) {
   function boxMullerTransform() {

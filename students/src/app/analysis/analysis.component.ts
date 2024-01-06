@@ -63,15 +63,24 @@ export class AnalysisComponent implements OnInit {
       this.examsData = exams;
 
       // set averages for subject averages chart
-      this.chartDataService.generateSubjectAveragesData({
+      this.chartDataService.generateSubjectAvgsChatData({
         exams,
         selectedSubjects: [],
-        selectedStudents: [],
-      }); // set averages for subject averages chart
-      this.chartDataService.generateStudentAveragesData({
+        selectedStudentIds: [],
+      });
+
+      // set averages for subject averages chart
+      this.chartDataService.generateStudentAvgsChartData({
         exams,
         selectedSubjects: [],
-        selectedStudents: [],
+        selectedStudentIds: [],
+      });
+
+      // set averages for averages time series chart
+      this.chartDataService.generateAvgTimeSeriesChatData({
+        exams,
+        selectedSubjects: [],
+        selectedStudentIds: [],
       });
     });
   }

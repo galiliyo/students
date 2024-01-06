@@ -1,49 +1,18 @@
 {
   "exams": [
     {
-      "id": 100,
       "subject": "Literature",
-      "grade": 72,
-      "studentId": 1170,
+      "grade": 75,
       "name": "Samuel Kim",
       "email": "samuel.kim@aol.com",
-      "joinDate": "2023-01-09T22:00:00.000Z",
+      "joinDate": "2023-09-01",
       "address": {
         "line_1": "861 Pine Ln.",
         "zip": "72148",
         "city": "New York",
         "country": "USA"
-      }
-    },
-    {
-      "id": 101,
-      "subject": "Literature",
-      "grade": 67,
-      "studentId": 1170,
-      "name": "Samuel Kim",
-      "email": "samuel.kim@aol.com",
-      "joinDate": "2023-05-04T21:00:00.000Z",
-      "address": {
-        "line_1": "861 Pine Ln.",
-        "zip": "72148",
-        "city": "New York",
-        "country": "USA"
-      }
-    },
-    {
-      "id": 102,
-      "subject": "Literature",
-      "grade": 65,
-      "studentId": 1170,
-      "name": "Samuel Kim",
-      "email": "samuel.kim@aol.com",
-      "joinDate": "2023-09-01T21:00:00.000Z",
-      "address": {
-        "line_1": "861 Pine Ln.",
-        "zip": "72148",
-        "city": "New York",
-        "country": "USA"
-      }
+      },
+      "id": 102
     },
     {
       "id": 103,
@@ -61,19 +30,18 @@
       }
     },
     {
-      "id": 104,
       "subject": "Math",
-      "grade": 100,
-      "studentId": 1170,
+      "grade": 91,
       "name": "Samuel Kim",
       "email": "samuel.kim@aol.com",
-      "joinDate": "2023-05-11T21:00:00.000Z",
+      "joinDate": "2023-05-11",
       "address": {
         "line_1": "861 Pine Ln.",
         "zip": "72148",
         "city": "New York",
         "country": "USA"
-      }
+      },
+      "id": 104
     },
     {
       "id": 105,
@@ -91,19 +59,18 @@
       }
     },
     {
-      "id": 106,
       "subject": "French",
-      "grade": 100,
-      "studentId": 1170,
+      "grade": 99,
       "name": "Samuel Kim",
       "email": "samuel.kim@aol.com",
-      "joinDate": "2023-01-19T22:00:00.000Z",
+      "joinDate": "2023-01-19",
       "address": {
         "line_1": "861 Pine Ln.",
         "zip": "72148",
         "city": "New York",
         "country": "USA"
-      }
+      },
+      "id": 106
     },
     {
       "id": 107,
@@ -383,21 +350,6 @@
       "name": "Elizabeth Li",
       "email": "elizabeth.li@yahoo.com",
       "joinDate": "2023-05-19T21:00:00.000Z",
-      "address": {
-        "line_1": "974 Maple Ave.",
-        "zip": "65301",
-        "city": "San Francisco",
-        "country": "USA"
-      }
-    },
-    {
-      "id": 126,
-      "subject": "History",
-      "grade": 0,
-      "studentId": 6586,
-      "name": "Elizabeth Li",
-      "email": "elizabeth.li@yahoo.com",
-      "joinDate": "2023-09-13T21:00:00.000Z",
       "address": {
         "line_1": "974 Maple Ave.",
         "zip": "65301",
