@@ -3,7 +3,7 @@ import {
   ColumnDef,
   GenericTableComponent,
 } from '../components/generic-table/generic-table.component';
-import { ExamsService } from '../exams.service';
+import { ExamsService } from '../services/exams.service';
 import { BehaviorSubject } from 'rxjs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AsyncPipe, NgClass } from '@angular/common';
@@ -45,7 +45,7 @@ export class DataComponent implements OnInit {
   ngOnInit() {
     this.examsService.loadExams();
 
-    this.examsService.exams$.subscribe((exams) => {
+    this.examsService.exams$.subscribe((exams: Exam[]) => {
       this.displayData = exams?.map((exam) => formatExamDate(exam));
     });
 
@@ -73,7 +73,7 @@ export class DataComponent implements OnInit {
     this.showNewExamForm$.next(false);
   }
   deleteRow(examId: number) {
-    this.examsService.deleteExam(examId).subscribe((res) => {
+    this.examsService.deleteExam(examId).subscribe(() => {
       this.examsService.loadExams();
       this.showNewExamForm$.next(false);
       this._selectedRow$.next(null);

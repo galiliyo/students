@@ -7,7 +7,17 @@ export const defaultChartOptions: Partial<ApexOptions> = {
       distributed: true,
     },
   },
-  colors: ['#12f3b7', '#cc1860', '#FF9F1C', '#B2B2B2'],
+  colors: [
+    '#c2185bff',
+    '#01baefff',
+    '#a4f9c8ff',
+    '#fee440ff',
+    '#89ce94ff',
+    '#c3a995ff',
+    '#abc4abff',
+    '#f3a712ff',
+    '#d8cbc7ff',
+  ],
   series: [
     {
       name: 'Average',

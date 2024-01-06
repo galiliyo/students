@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { ExamsService } from './exams.service';
+import { ExamsService } from './services/exams.service';
 
 @Component({
   selector: 'app-root',
