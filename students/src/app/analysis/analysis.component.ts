@@ -10,6 +10,7 @@ import { ChartStudentComponent } from './chart-student/chart-student.component';
 import { ChartSubjectComponent } from './chart-subject/chart-subject.component';
 import { ChartTimeComponent } from './chart-time/chart-time.component';
 import {
+  JsonPipe,
   NgComponentOutlet,
   NgForOf,
   NgIf,
@@ -18,6 +19,13 @@ import {
 } from '@angular/common';
 import { ExamsService } from '../exams.service';
 import { ChartDataService } from './chart-data.service';
+import {
+  MultiSelectComponent,
+  Option,
+} from '../components/multi-select/multi-select.component';
+import { MatButtonModule } from '@angular/material/button';
+
+type ChartType = 'Student Avg' | 'Time Series' | 'Subject Avg';
 
 @Component({
   selector: 'app-analysis',
@@ -34,24 +42,27 @@ import { ChartDataService } from './chart-data.service';
     NgTemplateOutlet,
     NgComponentOutlet,
     CdkDragPreview,
+    MultiSelectComponent,
+    MatButtonModule,
+    JsonPipe,
   ],
   templateUrl: './analysis.component.html',
   styleUrl: './analysis.component.scss',
 })
 export class AnalysisComponent implements OnInit {
+  visible = ['Student Avg', 'Time Series']; //  visible charts
+  hidden = ['Subject Avg']; //  hidden chart
+  examsData: any[] = [];
+  subjectsOptions: Option[] = [];
+  studentsOptions: Option[] = [];
+  subjectSelections: string[] = [];
+  studentSelections: string[] = [];
   components = {
     ['Student Avg']: ChartStudentComponent,
+    ['Time Series']: ChartTimeComponent,
     ['Subject Avg']: ChartSubjectComponent,
-    Time: ChartTimeComponent,
   };
-  visible = ['Student Avg', 'Time'];
-  hidden = ['Subject Avg'];
-  // components = {
-  //   student: ChartStudentComponent,
-  //   subject: ChartSubjectComponent,
-  //   time: ChartTimeComponent,
-  // };
-  examsData: any = this.examsService.exams$;
+  protected selectPanelOpened = false;
 
   constructor(
     protected examsService: ExamsService,
@@ -62,26 +73,16 @@ export class AnalysisComponent implements OnInit {
     this.examsService.exams$.subscribe((exams) => {
       this.examsData = exams;
 
-      // set averages for subject averages chart
-      this.chartDataService.generateSubjectAvgsChatData({
-        exams,
-        selectedSubjects: [],
-        selectedStudentIds: [],
-      });
-
-      // set averages for subject averages chart
-      this.chartDataService.generateStudentAvgsChartData({
-        exams,
-        selectedSubjects: [],
-        selectedStudentIds: [],
-      });
-
-      // set averages for averages time series chart
-      this.chartDataService.generateAvgTimeSeriesChatData({
-        exams,
-        selectedSubjects: [],
-        selectedStudentIds: [],
-      });
+      this.subjectsOptions = this.examsService
+        .getAllSubjects()
+        .map((subject) => ({ value: subject, label: subject }));
+      this.studentsOptions = this.examsService
+        .getAllStudents()
+        ?.map((student) => ({
+          value: student.studentId?.toString(),
+          label: student.name,
+        }));
+      this.generateAllChartsData();
     });
   }
 
@@ -93,9 +94,6 @@ export class AnalysisComponent implements OnInit {
         event.currentIndex,
       );
     } else {
-      console.log('prev Index', event.previousIndex);
-      console.log('curr Index', event.currentIndex);
-
       const sourceName = event.previousContainer.data.containerName;
       const remainingItemIdx = event.previousIndex === 0 ? 1 : 0;
       const removedItem = this.visible[event.previousIndex];
@@ -110,7 +108,50 @@ export class AnalysisComponent implements OnInit {
   }
 
   getComponent(key: string) {
-    // @ts-ignore
-    return this.components[key];
+    return this.components[key as ChartType];
+  }
+
+  onStudentSelection($event: string[]) {
+    this.studentSelections = $event;
+  }
+
+  onSubjectSelection($event: string[]) {
+    this.subjectSelections = $event;
+  }
+
+  onOpenChanged($event: boolean) {
+    this.selectPanelOpened = $event;
+  }
+
+  resetFilters() {
+    this.studentSelections = [];
+    this.subjectSelections = [];
+  }
+
+  protected generateAllChartsData() {
+    // set averages for subject averages chart
+    this.chartDataService.generateSubjectAvgsChatData({
+      exams: this.examsData,
+      selectedSubjects: this.subjectSelections,
+      selectedStudentIds: parseIntArray(this.studentSelections),
+    });
+
+    // set averages for subject averages chart
+    this.chartDataService.generateStudentAvgsChartData({
+      exams: this.examsData,
+      selectedSubjects: this.subjectSelections,
+      selectedStudentIds: parseIntArray(this.studentSelections),
+    });
+
+    // set averages for averages time series chart
+    this.chartDataService.generateAvgTimeSeriesChatData({
+      exams: this.examsData,
+      selectedSubjects: this.subjectSelections,
+      selectedStudentIds: parseIntArray(this.studentSelections),
+    });
+
+    function parseIntArray(strs: string[]): number[] {
+      return strs.map((str) => parseInt(str, 10));
+    }
   }
 }

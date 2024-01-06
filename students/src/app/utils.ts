@@ -248,6 +248,6 @@ function getNormallyDistributedRandomNumber(mean: number, stddev: number) {
   return Math.ceil(z0 * stddev + mean);
 }
 
-console.log('++++++++++++++++++++++++++++++++++++++++++');
-console.log(JSON.stringify(generateRandomExams(), null, 2));
+// console.log('++++++++++++++++++++++++++++++++++++++++++');
+// console.log(JSON.stringify(generateRandomExams(), null, 2));
 // console.log(generateNubberArray());

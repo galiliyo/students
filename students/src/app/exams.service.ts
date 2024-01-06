@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { environment } from './environments/environment';
 import { Exam } from './interfaces/exams.interface';
+import { Student } from './interfaces/student.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -48,5 +49,27 @@ export class ExamsService {
       console.log(`error deleteExam: ${error}`);
       return of(error);
     }
+  }
+
+  getAllSubjects() {
+    const subjects = this._exams.value?.map((exam) => exam.subject);
+    return [...new Set(subjects)];
+  }
+
+  // returns an array of students with no duplicates
+  getAllStudents(): Student[] {
+    return (
+      this._exams.value?.reduce((acc, curr) => {
+        const existingStudent = acc.find(
+          (student) => student.studentId === curr.studentId,
+        );
+
+        if (curr.studentId && !existingStudent) {
+          acc.push({ name: curr.name, studentId: curr.studentId });
+        }
+
+        return acc;
+      }, [] as Student[]) || []
+    );
   }
 }

@@ -4,21 +4,30 @@
   display: flex;
   height: 100%;
 }
-
+.controls {
+  height: 6rem;
+  background: $gray-dark;
+  border-radius: 4px;
+  padding: 0 2rem;
+  .filter-label {
+    margin-right: 1rem;
+  }
+  .select {
+    width: 16rem;
+    margin-right: 2rem;
+  }
+}
 .visible-container {
-  height: 90%;
 }
 
 .visible-list {
   width: 100%;
   max-width: 100%;
-  min-height: 60px;
+  min-height: 4rem;
   display: flex;
   gap: 1rem;
   height: 100%;
-
   flex-direction: row;
-  //background: white;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -28,19 +37,15 @@
   min-height: 60px;
   display: flex;
   flex-direction: row;
-  background: #3a3a3a;
   border-radius: 4px;
   overflow: hidden;
 }
 .visible-box {
-  color: rgba(0, 0, 0, 0.87);
   display: flex;
   height: 90%;
   flex-direction: row;
   align-items: center;
   cursor: move;
-  margin-bottom: 1rem;
-  font-size: 14px;
   flex-grow: 1;
   flex-basis: 0;
   overflow: hidden;
@@ -48,8 +53,8 @@
 
 .hidden-box {
   padding: 20px 10px;
-  color: rgba(0, 0, 0, 0.87);
   display: flex;
+  color: white;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -63,6 +68,8 @@
 
 .cdk-drag-preview {
   padding: 1rem;
+  color: white;
+  background: $gray-dark;
   height: 3rem !important;
   width: 8rem !important;
   border-radius: 4px;

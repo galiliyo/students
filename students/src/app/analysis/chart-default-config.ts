@@ -20,7 +20,6 @@ export const defaultChartOptions: Partial<ApexOptions> = {
     offsetX: 20,
     width: '94%',
     type: 'bar',
-    background: 'transparent',
   },
   title: {
     text: 'Averages per Student',

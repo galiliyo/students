@@ -4,6 +4,7 @@
       "subject": "Literature",
       "grade": 75,
       "name": "Samuel Kim",
+      "studentId": 1170,
       "email": "samuel.kim@aol.com",
       "joinDate": "2023-09-01",
       "address": {

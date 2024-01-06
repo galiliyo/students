@@ -1,6 +1,53 @@
 <div class="page-container analysis-container">
+  <div
+    class="controls mb-1 mat-elevation-z4 flex-row flex-justify-between flex-align-center"
+  >
+    <div class="flex-row flex-align-center">
+      <div class="mat-h4 color-white mb-0 filter-label">Filter by:</div>
+      <!--      Subjects Filter-->
+      <app-multi-select
+        (openChanged)="onOpenChanged($event)"
+        (selectionChange)="onSubjectSelection($event)"
+        [initialSelections]="subjectSelections"
+        [options]="subjectsOptions"
+        [showSelectAll]="true"
+        class="select"
+        label="Subjects"
+      ></app-multi-select>
+
+      <!--      Students Filter-->
+      <app-multi-select
+        (openChanged)="onOpenChanged($event)"
+        (selectionChange)="onStudentSelection($event)"
+        [initialSelections]="studentSelections"
+        [options]="studentsOptions"
+        [showSelectAll]="false"
+        class="select"
+        label="Students"
+      ></app-multi-select>
+    </div>
+    <div class="flex-row gap-1">
+      <button
+        (click)="resetFilters()"
+        [disabled]="selectPanelOpened"
+        color="basic"
+        mat-stroked-button
+      >
+        Reset
+      </button>
+      <button
+        (click)="generateAllChartsData()"
+        [disabled]="selectPanelOpened"
+        color="primary"
+        mat-raised-button
+      >
+        Filter
+      </button>
+    </div>
+  </div>
+
   <!--  Visible charts container-->
-  <div class="visible-container">
+  <div class="visible-container mb-2 mat-elevation-z4">
     <div
       #visibleList="cdkDropList"
       (cdkDropListDropped)="drop($event)"
@@ -25,7 +72,7 @@
     </div>
   </div>
 
-  <!--  Hidden chart container-->
+  <!--  Hidden charts container-->
   <div class="hidden-container">
     <div
       #hiddenList="cdkDropList"
@@ -33,14 +80,13 @@
       [cdkDropListConnectedTo]="[visibleList]"
       [cdkDropListData]="{ items: hidden, containerName: 'hidden' }"
       cdkDropList
-      class="hidden-list"
+      class="hidden-list mat-elevation-z4"
     >
       @for (item of hidden; track item) {
         <div class="hidden-box" cdkDrag>{{ item }}</div>
       }
     </div>
   </div>
-
   <!--  Dynamic component template-->
   <ng-template #dynamicComponent let-componentType>
     <ng-container *ngComponentOutlet="componentType"></ng-container>
