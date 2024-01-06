@@ -32,6 +32,15 @@ export class ExamsService {
   }
 
   createExam(updatedExam: Exam) {
+    const allStudents = this.getAllStudents();
+    const studentExists = allStudents.find(
+      (student) => student.name === updatedExam.name,
+    );
+    if (studentExists) {
+      updatedExam.studentId = studentExists.studentId;
+    } else {
+      updatedExam.studentId = Math.round(Math.random() * 10000);
+    }
     const url = `${environment.baseUrl}/exams`;
     try {
       return this.httpClient.post(url, updatedExam);

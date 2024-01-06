@@ -4,7 +4,6 @@
       "subject": "Literature",
       "grade": 75,
       "name": "Samuel Kim",
-      "studentId": 1170,
       "email": "samuel.kim@aol.com",
       "joinDate": "2023-09-01",
       "address": {
@@ -74,19 +73,18 @@
       "id": 106
     },
     {
-      "id": 107,
       "subject": "French",
       "grade": 30,
-      "studentId": 1170,
       "name": "Samuel Kim",
       "email": "samuel.kim@aol.com",
-      "joinDate": "2023-05-17T21:00:00.000Z",
+      "joinDate": "2023-05-17",
       "address": {
         "line_1": "861 Pine Ln.",
         "zip": "72148",
         "city": "New York",
         "country": "USA"
-      }
+      },
+      "id": 107
     },
     {
       "id": 108,
@@ -3327,6 +3325,50 @@
         "city": "New York",
         "country": "USA"
       }
+    },
+    {
+      "subject": "Math",
+      "grade": 1,
+      "name": "Boris",
+      "email": "f@sdf",
+      "joinDate": "2023-12-12T22:00:00.000Z",
+      "address": {
+        "line_1": "sdfsd",
+        "zip": "sdfsd",
+        "city": "sdf",
+        "country": "sdf"
+      },
+      "id": 325
+    },
+    {
+      "subject": "Farts",
+      "grade": 2,
+      "name": "Mac",
+      "email": "as@were",
+      "joinDate": "2024-01-15T22:00:00.000Z",
+      "address": {
+        "line_1": "sdf",
+        "zip": "sdf",
+        "city": "sdf",
+        "country": "sdf"
+      },
+      "studentId": 3784,
+      "id": 326
+    },
+    {
+      "subject": "Farts",
+      "grade": 3,
+      "name": "Samuel Kim",
+      "email": "sdas@rewr",
+      "joinDate": "2024-01-21T22:00:00.000Z",
+      "address": {
+        "line_1": "fddf",
+        "zip": "df",
+        "city": "df",
+        "country": "df"
+      },
+      "studentId": 1170,
+      "id": 327
     }
   ]
 }
