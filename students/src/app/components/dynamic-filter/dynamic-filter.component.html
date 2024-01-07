@@ -1,0 +1,57 @@
+<div class="flex-row flex-justify-between flex-align-center full-width">
+  <div class="flex-row flex-align-center gap-1">
+    <!--  Column Selector-->
+    <mat-form-field class="select-container column-container">
+      <mat-label>Column</mat-label>
+      <mat-select
+        (selectionChange)="onColumnSelected()"
+        [(ngModel)]="selectedColumn"
+      >
+        @for (column of columnOptions; track column) {
+          <mat-option [value]="column.value">{{ column.viewValue }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!--  Operator Selector-->
+    <mat-form-field class="select-container operator-container">
+      <mat-label>Operator</mat-label>
+      <mat-select [(ngModel)]="selectedOperator">
+        @for (operator of operatorOptions; track operator) {
+          <mat-option [value]="operator.value">{{
+            operator.viewValue
+          }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!--  Criteria Input-->
+    @if (filterDataType !== "date") {
+      <mat-form-field class="select-container criteria-container">
+        <mat-label>Filter Criteria</mat-label>
+        <input [(ngModel)]="filterCriteria" matInput type="text" />
+      </mat-form-field>
+    }
+
+    @if (filterDataType === "date") {
+      <mat-form-field class="select-container criteria-container">
+        <mat-label>Choose a date</mat-label>
+        <input [matDatepicker]="picker" [(ngModel)]="selectedDate" matInput />
+        <mat-datepicker-toggle
+          [for]="picker"
+          matIconSuffix
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    }
+  </div>
+  <div class="flex-row gap-1">
+    <button (click)="resetFilters()" color="basic" mat-stroked-button>
+      Reset
+    </button>
+    <button (click)="applyFilter()" color="primary" mat-raised-button>
+      Filter
+    </button>
+    <div class="divider"></div>
+  </div>
+</div>

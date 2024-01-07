@@ -1,23 +1,32 @@
 <main class="page-container">
   <app-generic-table
-    [columnDefs]="columnDefinitions"
-    [data]="displayData"
     (addRow)="openNewExamDrawer()"
     (deleteRow)="deleteRow($event)"
+    (selectedRowChange)="selectedRowChange($event)"
+    [columnDefs]="columnDefinitions"
+    [data]="filteredExams"
     [pageSizeOptions]="[5, 10]"
     [selectedRowId]="selectedRowId"
-    (selectedRowChange)="selectedRowChange($event)"
   >
+    <div class="flex-row full-width flex-align-center flex-justify-between">
+      <div class="flex-row flex-align-center flex-1">
+        <div class="mat-h4 color-white mb-0 filter-label">Filter by:</div>
+        <app-dynamic-filter
+          (filteredData)="setFilteredData($event)"
+          [data]="unFilteredExams"
+        ></app-dynamic-filter>
+      </div>
+    </div>
   </app-generic-table>
 </main>
 <div
-  class="drawer-container"
   [ngClass]="
     (selectedStudent$ | async) || (showNewExamForm$ | async) ? 'show' : 'hide'
   "
+  class="drawer-container"
 >
   <app-exam-form
-    [initialExamData$]="selectedStudent$"
     (closeDrawer)="closeExamDrawer()"
+    [initialExamData$]="selectedStudent$"
   ></app-exam-form>
 </div>

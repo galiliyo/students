@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { ExamFormComponent } from './exam-form/exam-form.component';
 import { Exam } from '../interfaces/exams.interface';
+import { DynamicFilterComponent } from '../components/dynamic-filter/dynamic-filter.component';
 
 function newSubject<T>(b: boolean) {}
 
@@ -21,12 +22,14 @@ function newSubject<T>(b: boolean) {}
     NgClass,
     ExamFormComponent,
     AsyncPipe,
+    DynamicFilterComponent,
   ],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent implements OnInit {
-  displayData: Exam[] = []; // averages to display in the table
+  unFilteredExams: Exam[] = []; //  all exams
+  filteredExams: Exam[] = []; //  display in the table
   selectedRowId: number | null = null;
 
   columnDefinitions: ColumnDef[] = [
@@ -46,7 +49,10 @@ export class DataComponent implements OnInit {
     this.examsService.loadExams();
 
     this.examsService.exams$.subscribe((exams: Exam[]) => {
-      this.displayData = exams?.map((exam) => formatExamDate(exam));
+      this.unFilteredExams = exams?.map((exam) => formatExamDate(exam));
+      this.filteredExams = this.unFilteredExams
+        ? [...this.unFilteredExams]
+        : [];
     });
 
     //todo: unsubscribe
@@ -78,6 +84,10 @@ export class DataComponent implements OnInit {
       this.showNewExamForm$.next(false);
       this._selectedRow$.next(null);
     });
+  }
+
+  setFilteredData($event: any[]) {
+    this.filteredExams = $event;
   }
 }
 
