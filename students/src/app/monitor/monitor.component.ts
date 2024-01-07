@@ -53,15 +53,14 @@ export class MonitorComponent implements OnInit, OnDestroy {
     { colId: 'average', header: 'Average', sortable: true },
     { colId: 'noOfExams', header: 'Exams', sortable: true },
   ];
-  selectPanelOpened = false;
+  selectPanelOpened = false; // for disabling the buttons when the select panel is open
   studentSelections: string[] = [];
   showPassedCheck = true;
   showFailedCheck = true;
   PASS_GRADE = 65;
-  filteredData: MonitorData[] = [];
+  filteredData: MonitorData[] = []; // data to display in the table after filtering
   protected unFilteredData: MonitorData[] = [];
-  protected studentsOptions: Option[] = [];
-  private allStudentsAvg: StudentAverage | {} = {};
+  protected studentsOptions: Option[] = []; // options for student multi-select
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -70,12 +69,13 @@ export class MonitorComponent implements OnInit, OnDestroy {
     private localStorageService: LocalStorageService,
   ) {
     effect(() => {
-      this.allStudentsAvg =
+      const allStudentsAvg =
         this.chartDataService.$studentAverages()?.studentData ||
         ({} as StudentAverage);
 
-      if (this.allStudentsAvg) {
-        this.unFilteredData = Object.entries(this.allStudentsAvg).map(
+      // Convert the student averages object to an array of MonitorData objects
+      if (allStudentsAvg) {
+        this.unFilteredData = Object.entries(allStudentsAvg).map(
           ([studentName, { sum, count, studentId }]) => ({
             id: studentId,
             name: studentName,
@@ -85,6 +85,8 @@ export class MonitorComponent implements OnInit, OnDestroy {
           }),
         );
       }
+
+      // Get filter selections from local storage
       const filterSelections =
         this.localStorageService.getFromLocalStorage('monitor_filters');
       if (filterSelections) {

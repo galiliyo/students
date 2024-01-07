@@ -10,7 +10,7 @@ import { Student } from '../interfaces/student.interface';
 })
 export class ExamsService {
   private _exams = new BehaviorSubject<Exam[] | null>(null);
-  public exams$ = this._exams as Observable<Exam[]>;
+  public exams$ = this._exams as Observable<Exam[]>; // expose as observable
 
   constructor(public httpClient: HttpClient) {}
 
@@ -20,7 +20,7 @@ export class ExamsService {
       .get<Exam[]>(url)
       .subscribe((exams) => this._exams.next(exams));
   }
-  // todo: load
+
   updateExam(id: number, exam: Exam) {
     const url = `${environment.baseUrl}/exams/${id}`;
     try {
@@ -64,15 +64,15 @@ export class ExamsService {
   }
 
   getAllSubjects() {
+    // returns an array of subjects (History, Math etc.) with no duplicates
     const subjects = this._exams.value?.map((exam) => exam.subject);
     return [...new Set(subjects)];
   }
 
-  // returns an array of students with no duplicates
   getAllStudents(): Student[] {
+    // returns an array of students with no duplicates, also checks that all Students have ids
     return (
       this._exams.value?.reduce((acc, curr) => {
-        console.log(curr);
         const existingStudent = acc.find(
           (student) => student.studentId === curr.studentId,
         );
