@@ -95,7 +95,6 @@ export class MultiSelectComponent implements OnChanges, AfterViewInit {
   }
 
   onOpenChanged() {
-    console.log(this.select?.panelOpen);
     this.openChanged.emit(this.select?.panelOpen);
   }
 

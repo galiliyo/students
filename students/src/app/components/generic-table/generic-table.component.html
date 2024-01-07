@@ -1,6 +1,7 @@
-<div class="mat-h2 color-white">{{ title }}</div>
 <div class="mat-elevation-z8 flex-1">
-  <div class="controls flex-row flex-justify-end">
+  <div
+    class="control-bar controls flex-row flex-justify-end flat-bottom flex-align-center"
+  >
     <ng-content></ng-content>
     @if (!displayOnly) {
       <div class="flex-row">
@@ -39,10 +40,18 @@
     </ng-container>
 
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <div *matNoDataRow class="color-white mat-h3" style>
+      Nothing to see here folks! Go Home
+    </div>
     <tr
       (click)="onRowClicked(row)"
       *matRowDef="let row; columns: displayedColumns"
-      [ngClass]="{ 'selected-row': row.id === selectedRowId }"
+      [ngClass]="{
+        'selected-row': !displayOnly && row.id === selectedRowId,
+        'hover-row': !displayOnly,
+        'success-row': successRows && row.passed,
+        'danger-row': successRows && !row.passed
+      }"
       class="table-row"
       mat-row
     ></tr>

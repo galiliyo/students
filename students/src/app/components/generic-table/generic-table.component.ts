@@ -15,6 +15,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { NgClass, NgForOf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ControlBarComponent } from '../control-bar/control-bar.component';
 
 export interface ColumnDef {
   colId: string;
@@ -32,6 +33,7 @@ export interface ColumnDef {
     NgClass,
     MatButtonModule,
     MatIconModule,
+    ControlBarComponent,
   ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
@@ -53,7 +55,8 @@ export class GenericTableComponent<T>
 
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   displayedColumns: string[] = [];
-  @Input() displayOnly!: boolean;
+  @Input() displayOnly: boolean = false;
+  @Input() successRows: boolean = false;
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.data);

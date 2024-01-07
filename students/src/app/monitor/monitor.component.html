@@ -1,11 +1,12 @@
 <main class="page-container">
   <app-generic-table
     [columnDefs]="columnDefinitions"
-    [data]="unFilteredData"
+    [data]="filteredData"
     [displayOnly]="true"
     [pageSizeOptions]="[5, 10]"
+    [successRows]="true"
   >
-    <div class="flex-row full-width flex-align-center ph">
+    <div class="flex-row full-width flex-align-center flex-justify-between">
       <div class="flex-row flex-align-center">
         <div class="mat-h4 color-white mb-0 filter-label">Filter by:</div>
 
@@ -19,6 +20,24 @@
           class="select"
           label="Students"
         ></app-multi-select>
+
+        <!--        Passed / Failed Checkboxes-->
+        <div class="flex-row gap-1">
+          <mat-checkbox
+            [(ngModel)]="showPassedCheck"
+            [color]="'green'"
+            class="example-margin"
+          >
+            Show Passed
+          </mat-checkbox>
+          <mat-checkbox
+            [(ngModel)]="showFailedCheck"
+            [color]="'green'"
+            class="example-margin"
+          >
+            Show Failed
+          </mat-checkbox>
+        </div>
       </div>
       <div class="flex-row gap-1">
         <button

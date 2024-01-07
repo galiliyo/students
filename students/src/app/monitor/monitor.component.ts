@@ -1,11 +1,16 @@
-import { Component, effect, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import {
   ColumnDef,
   GenericTableComponent,
 } from '../components/generic-table/generic-table.component';
 import { ChartDataService } from '../analysis/chart-data.service';
-import { Exam } from '../interfaces/exams.interface';
 import { ExamsService } from '../services/exams.service';
 import { Subject, takeUntil } from 'rxjs';
 import { Student } from '../interfaces/student.interface';
@@ -15,12 +20,16 @@ import {
   MultiSelectComponent,
   Option,
 } from '../components/multi-select/multi-select.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { LocalStorageService } from '../services/local-storage.service';
 
 interface MonitorData {
   id: number;
   name: string;
   average: number;
   noOfExams: number;
+  passed: boolean;
 }
 @Component({
   selector: 'app-monitor',
@@ -30,36 +39,40 @@ interface MonitorData {
     GenericTableComponent,
     MatButtonModule,
     MultiSelectComponent,
+    MatCheckboxModule,
+    FormsModule,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './monitor.component.html',
   styleUrl: './monitor.component.scss',
 })
-export class MonitorComponent implements OnInit {
+export class MonitorComponent implements OnInit, OnDestroy {
   columnDefinitions: ColumnDef[] = [
     { colId: 'id', header: 'Student ID', sortable: true },
     { colId: 'name', header: 'Name', sortable: true },
     { colId: 'average', header: 'Average', sortable: true },
     { colId: 'noOfExams', header: 'Exams', sortable: true },
   ];
-  displayData: MonitorData[] = [];
   selectPanelOpened = false;
   studentSelections: string[] = [];
+  showPassedCheck = true;
+  showFailedCheck = true;
+  PASS_GRADE = 65;
+  filteredData: MonitorData[] = [];
   protected unFilteredData: MonitorData[] = [];
   protected studentsOptions: Option[] = [];
   private allStudentsAvg: StudentAverage | {} = {};
-  private examsData: Exam[] = [];
   private unsubscribe$ = new Subject<void>();
 
   constructor(
     private chartDataService: ChartDataService,
     private examsService: ExamsService,
+    private localStorageService: LocalStorageService,
   ) {
     effect(() => {
       this.allStudentsAvg =
         this.chartDataService.$studentAverages()?.studentData ||
         ({} as StudentAverage);
-
-      console.log('studentAveragesMap', this.allStudentsAvg);
 
       if (this.allStudentsAvg) {
         this.unFilteredData = Object.entries(this.allStudentsAvg).map(
@@ -68,10 +81,19 @@ export class MonitorComponent implements OnInit {
             name: studentName,
             average: Math.round(sum / count),
             noOfExams: count,
+            passed: Math.round(sum / count) >= this.PASS_GRADE,
           }),
         );
       }
-      console.log('unFilteredData', this.unFilteredData);
+      const filterSelections =
+        this.localStorageService.getFromLocalStorage('monitor_filters');
+      if (filterSelections) {
+        this.studentSelections = filterSelections.studentSelections;
+        this.showPassedCheck = filterSelections.showPassedCheck;
+        this.showFailedCheck = filterSelections.showFailedCheck;
+      }
+
+      this.filterData();
     });
   }
 
@@ -80,8 +102,6 @@ export class MonitorComponent implements OnInit {
     this.examsService.exams$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((exams) => {
-        this.examsData = exams;
-
         // Set student multi-select options
         this.studentsOptions = this.examsService
           .getAllStudents()
@@ -96,11 +116,43 @@ export class MonitorComponent implements OnInit {
       });
   }
 
-  resetFilters() {}
+  resetFilters() {
+    this.studentSelections = [];
+    this.showPassedCheck = true;
+    this.showFailedCheck = true;
+    this.filterData();
+    this.localStorageService.clearLocalStorage('monitor_filters');
+  }
 
-  onOpenChanged($event: boolean) {}
+  onOpenChanged($event: boolean) {
+    this.selectPanelOpened = $event;
+  }
 
-  onStudentSelection($event: string[]) {}
+  onStudentSelection($event: string[]) {
+    this.studentSelections = $event;
+  }
 
-  filterData() {}
+  filterData() {
+    this.filteredData = this.unFilteredData.filter((student) => {
+      // Filter by student selection and passed/failed
+      return (
+        (this.studentSelections.includes(student.id?.toString()) ||
+          this.studentSelections.length === 0) &&
+        ((this.showPassedCheck && student.passed) ||
+          (this.showFailedCheck && !student.passed))
+      );
+    });
+
+    this.localStorageService.saveToLocalStorage('monitor_filters', {
+      studentSelections: this.studentSelections,
+      showPassedCheck: this.showPassedCheck,
+      showFailedCheck: this.showFailedCheck,
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Complete the subject to signal the observables to unsubscribe
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }

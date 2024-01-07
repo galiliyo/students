@@ -49,3 +49,24 @@ body {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+// for projected content
+.control-bar {
+  &.controls {
+    height: 5.5rem;
+    background: $gray-dark;
+    border-radius: 4px;
+    padding: 0 2rem;
+    z-index: 10;
+    .filter-label {
+      margin-right: 1rem;
+    }
+    .select {
+      width: 16rem;
+      margin-right: 2rem;
+    }
+  }
+  &.flat-bottom {
+    border-radius: 4px 4px 0 0;
+  }
+}

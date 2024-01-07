@@ -4,19 +4,7 @@
   display: flex;
   height: 100%;
 }
-.controls {
-  height: 6rem;
-  background: $gray-dark;
-  border-radius: 4px;
-  padding: 0 2rem;
-  .filter-label {
-    margin-right: 1rem;
-  }
-  .select {
-    width: 16rem;
-    margin-right: 2rem;
-  }
-}
+
 .visible-container {
 }
 

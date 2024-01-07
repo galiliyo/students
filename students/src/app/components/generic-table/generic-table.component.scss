@@ -5,17 +5,21 @@
 .table-row {
   cursor: pointer;
   transition: background-color 0.1s ease-in-out;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+  &.hover-row {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+  &.success-row {
+    background-color: rgba(0, 255, 0, 0.1);
+  }
+  &.danger-row {
+    background-color: rgba(255, 0, 0, 0.1);
   }
   &.selected-row {
     background-color: rgba(255, 255, 255, 0.2);
   }
 }
-
-.controls {
-  height: 3rem;
-  padding: 0.5rem;
-  background: #66686b;
-  border-radius: 4px 4px 0 0;
+.mat-mdc-no-data-row {
+  padding: 1rem;
 }

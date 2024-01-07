@@ -28,6 +28,7 @@ import { Student } from '../interfaces/student.interface';
 import { ExamsService } from '../services/exams.service';
 import { Subject, takeUntil } from 'rxjs';
 import { LocalStorageService } from '../services/local-storage.service';
+import { ControlBarComponent } from '../components/control-bar/control-bar.component';
 
 type ChartType = 'Student Avg' | 'Time Series' | 'Subject Avg';
 
@@ -49,6 +50,7 @@ type ChartType = 'Student Avg' | 'Time Series' | 'Subject Avg';
     MultiSelectComponent,
     MatButtonModule,
     JsonPipe,
+    ControlBarComponent,
   ],
   templateUrl: './analysis.component.html',
   styleUrl: './analysis.component.scss',
@@ -76,12 +78,12 @@ export class AnalysisComponent implements OnInit, OnDestroy {
     private chartDataService: ChartDataService,
     private localStorageService: LocalStorageService,
   ) {
+    // Get filter selections from local storage
     const filterSelections =
       this.localStorageService.getFromLocalStorage('analysis_filters');
     if (filterSelections) {
       this.studentSelections = filterSelections.studentSelections;
       this.subjectSelections = filterSelections.subjectSelections;
-      console.log(filterSelections);
     }
   }
 

@@ -74,7 +74,6 @@ export class ChartTimeComponent {
     effect(() => {
       const data = this.chartDataService.$timeSeriesData();
       if (data && data.series.length) {
-        console.log('$timeSeriesData', data);
         this.updateChart(data);
       }
     });
