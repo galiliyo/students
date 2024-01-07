@@ -5,6 +5,8 @@ import {
   SubjectAverage,
   TimeSeriesData,
 } from '../interfaces/chart.interfaces';
+import { ExamsService } from '../services/exams.service';
+import { Exam } from '../interfaces/exams.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,16 +16,33 @@ export class ChartDataService {
   $subjectAverages = signal<SubjectAverage | null>(null);
   $studentAverages = signal<StudentAverage | null>(null);
   $timeSeriesData = signal<TimeSeriesData | null>(null);
+  private exams: Exam[] = [];
+
+  constructor(public examsService: ExamsService) {
+    this.examsService.exams$.subscribe((exams) => {
+      this.exams = exams;
+      this.generateAvgTimeSeriesChatData({
+        selectedStudentIds: [],
+        selectedSubjects: [],
+      });
+      this.generateSubjectAvgsChatData({
+        selectedStudentIds: [],
+        selectedSubjects: [],
+      });
+      this.generateStudentAvgsChartData({
+        selectedStudentIds: [],
+        selectedSubjects: [],
+      });
+    });
+  }
 
   // Exposed public methods to generate and set chart data
 
   public generateAvgTimeSeriesChatData({
-    exams,
     selectedStudentIds,
     selectedSubjects,
   }: inputArguments) {
     const results = this.calculateTimeSeriesData({
-      exams,
       selectedStudentIds,
       selectedSubjects,
     });
@@ -31,12 +50,10 @@ export class ChartDataService {
   }
 
   public generateSubjectAvgsChatData({
-    exams,
     selectedStudentIds,
     selectedSubjects,
   }: inputArguments) {
     const results = this.calculateSubjectAverages({
-      exams,
       selectedStudentIds,
       selectedSubjects,
     });
@@ -44,12 +61,10 @@ export class ChartDataService {
   }
 
   public generateStudentAvgsChartData({
-    exams,
     selectedStudentIds,
     selectedSubjects,
   }: inputArguments) {
     const results = this.calculateStudentAverages({
-      exams,
       selectedStudentIds,
       selectedSubjects,
     });
@@ -71,16 +86,15 @@ export class ChartDataService {
    * @returns Time series data in the specified format for a time series chart.
    */
   private calculateTimeSeriesData({
-    exams,
     selectedStudentIds,
     selectedSubjects,
     maxStudentNo = 10,
     thisYearOnly = true,
   }: inputArguments) {
-    if (!exams || exams.length === 0) return { series: [] };
+    if (!this.exams || this.exams.length === 0) return { series: [] };
 
     // Sort exams by date in ascending order
-    exams.sort(
+    this.exams.sort(
       (a, b) => new Date(a.joinDate).getTime() - new Date(b.joinDate).getTime(),
     );
 
@@ -92,7 +106,7 @@ export class ChartDataService {
     const series: { name: string; data: [number, number][] }[] = []; // {name:'student name' , data :[timestamp, average]}[]
 
     // Iterate through the sorted exams to calculate sum and count for each student
-    for (const studentExam of exams) {
+    for (const studentExam of this.exams) {
       // filter the exams based on the selected students and subjects
       if (
         selectedStudentIds.length === 0 ||
@@ -158,17 +172,17 @@ export class ChartDataService {
    * @returns An object containing two arrays - 'subjects' with subject names and 'averages' with their respective average grades.
    */
   private calculateSubjectAverages({
-    exams,
     selectedStudentIds,
     selectedSubjects,
   }: inputArguments): SubjectAverage {
-    if (!exams || exams.length === 0) return { subjects: [], averages: [] };
+    if (!this.exams || this.exams.length === 0)
+      return { subjects: [], averages: [] };
 
     // Create an object to store the sum and count of grades for each subject
     const subjectData: { [key: string]: { sum: number; count: number } } = {};
 
     // Iterate through the students to calculate sum and count for each subject
-    for (const studentExam of exams) {
+    for (const studentExam of this.exams) {
       if (
         selectedStudentIds.length === 0 ||
         selectedStudentIds.includes(studentExam.studentId)
@@ -213,12 +227,12 @@ export class ChartDataService {
    * @returns An object containing two arrays - 'students' with student names and 'averages' with their respective average grades.
    */
   private calculateStudentAverages({
-    exams,
     selectedStudentIds,
     selectedSubjects,
     maxStudentNo = 15,
   }: inputArguments): StudentAverage {
-    if (!exams || exams.length === 0) return { students: [], averages: [] };
+    if (!this.exams || this.exams.length === 0)
+      return { students: [], averages: [] };
 
     // Create an object to store the sum and count of grades for each student
     const studentData: {
@@ -226,7 +240,7 @@ export class ChartDataService {
     } = {};
 
     // Iterate through the exams to calculate sum and count for each student
-    for (const studentExam of exams) {
+    for (const studentExam of this.exams) {
       if (
         selectedStudentIds.length === 0 ||
         selectedStudentIds.includes(studentExam.studentId)
@@ -263,7 +277,6 @@ export class ChartDataService {
         averages.push(average);
       }
     }
-    debugger;
     return {
       students: students.slice(0, maxStudentNo),
       averages: averages.slice(0, maxStudentNo),

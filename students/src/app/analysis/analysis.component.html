@@ -63,7 +63,7 @@
           <ng-container
             *ngTemplateOutlet="
               dynamicComponent;
-              context: { $implicit: getComponent(item), examsData: examsData }
+              context: { $implicit: getComponent(item) }
             "
           ></ng-container>
           <div *cdkDragPreview class="cdk-drag-preview">{{ item }}</div>

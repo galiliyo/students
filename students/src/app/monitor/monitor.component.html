@@ -5,6 +5,39 @@
     [displayOnly]="true"
     [pageSizeOptions]="[5, 10]"
   >
-    <div class="flex-row full-width flex-align-center ph">xxxx</div>
+    <div class="flex-row full-width flex-align-center ph">
+      <div class="flex-row flex-align-center">
+        <div class="mat-h4 color-white mb-0 filter-label">Filter by:</div>
+
+        <!--      Students Filter-->
+        <app-multi-select
+          (openChanged)="onOpenChanged($event)"
+          (selectionChange)="onStudentSelection($event)"
+          [initialSelections]="studentSelections"
+          [options]="studentsOptions"
+          [showSelectAll]="false"
+          class="select"
+          label="Students"
+        ></app-multi-select>
+      </div>
+      <div class="flex-row gap-1">
+        <button
+          (click)="resetFilters()"
+          [disabled]="selectPanelOpened"
+          color="basic"
+          mat-stroked-button
+        >
+          Reset
+        </button>
+        <button
+          (click)="filterData()"
+          [disabled]="selectPanelOpened"
+          color="primary"
+          mat-raised-button
+        >
+          Filter
+        </button>
+      </div>
+    </div>
   </app-generic-table>
 </main>

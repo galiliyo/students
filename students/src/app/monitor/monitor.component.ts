@@ -10,6 +10,11 @@ import { ExamsService } from '../services/exams.service';
 import { Subject, takeUntil } from 'rxjs';
 import { Student } from '../interfaces/student.interface';
 import { StudentAverage } from '../interfaces/chart.interfaces';
+import { MatButtonModule } from '@angular/material/button';
+import {
+  MultiSelectComponent,
+  Option,
+} from '../components/multi-select/multi-select.component';
 
 interface MonitorData {
   id: number;
@@ -20,7 +25,12 @@ interface MonitorData {
 @Component({
   selector: 'app-monitor',
   standalone: true,
-  imports: [AsyncPipe, GenericTableComponent],
+  imports: [
+    AsyncPipe,
+    GenericTableComponent,
+    MatButtonModule,
+    MultiSelectComponent,
+  ],
   templateUrl: './monitor.component.html',
   styleUrl: './monitor.component.scss',
 })
@@ -32,25 +42,18 @@ export class MonitorComponent implements OnInit {
     { colId: 'noOfExams', header: 'Exams', sortable: true },
   ];
   displayData: MonitorData[] = [];
+  selectPanelOpened = false;
+  studentSelections: string[] = [];
   protected unFilteredData: MonitorData[] = [];
+  protected studentsOptions: Option[] = [];
   private allStudentsAvg: StudentAverage | {} = {};
   private examsData: Exam[] = [];
   private unsubscribe$ = new Subject<void>();
-  private studentsOptions:
-    | { label: string; value: string | undefined }[]
-    | undefined;
 
   constructor(
     private chartDataService: ChartDataService,
     private examsService: ExamsService,
   ) {
-    console.log('this.examsData', this.examsData);
-    this.chartDataService.generateStudentAvgsChartData({
-      exams: this.examsData,
-      selectedSubjects: [],
-      selectedStudentIds: [],
-    });
-
     effect(() => {
       this.allStudentsAvg =
         this.chartDataService.$studentAverages()?.studentData ||
@@ -87,10 +90,17 @@ export class MonitorComponent implements OnInit {
             label: student.name,
           }));
         this.chartDataService.generateStudentAvgsChartData({
-          exams: this.examsData,
           selectedSubjects: [],
           selectedStudentIds: [],
         });
       });
   }
+
+  resetFilters() {}
+
+  onOpenChanged($event: boolean) {}
+
+  onStudentSelection($event: string[]) {}
+
+  filterData() {}
 }

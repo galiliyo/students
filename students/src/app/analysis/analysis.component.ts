@@ -56,7 +56,7 @@ type ChartType = 'Student Avg' | 'Time Series' | 'Subject Avg';
 export class AnalysisComponent implements OnInit, OnDestroy {
   visible = ['Student Avg', 'Time Series']; //  visible charts
   hidden = ['Subject Avg']; //  hidden chart
-  examsData: any[] = [];
+  // examsData: any[] = [];
   subjectsOptions: Option[] = []; // options for subject multi-select
   studentsOptions: Option[] = []; // options for student multi-select
   subjectSelections: string[] = []; // selected subjects
@@ -90,7 +90,7 @@ export class AnalysisComponent implements OnInit, OnDestroy {
     this.examsService.exams$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((exams) => {
-        this.examsData = exams;
+        // this.examsData = exams;
 
         // Set subject multi-select options
         this.subjectsOptions = this.examsService
@@ -176,21 +176,18 @@ export class AnalysisComponent implements OnInit, OnDestroy {
   protected generateAllChartsData() {
     // set averages for subject averages chart
     this.chartDataService.generateSubjectAvgsChatData({
-      exams: this.examsData,
       selectedSubjects: this.subjectSelections,
       selectedStudentIds: parseIntArray(this.studentSelections),
     });
 
     // set averages for subject averages chart
     this.chartDataService.generateStudentAvgsChartData({
-      exams: this.examsData,
       selectedSubjects: this.subjectSelections,
       selectedStudentIds: parseIntArray(this.studentSelections),
     });
 
     // set averages for averages time series chart
     this.chartDataService.generateAvgTimeSeriesChatData({
-      exams: this.examsData,
       selectedSubjects: this.subjectSelections,
       selectedStudentIds: parseIntArray(this.studentSelections),
     });
