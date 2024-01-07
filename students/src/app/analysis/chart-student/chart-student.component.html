@@ -1,0 +1,14 @@
+<div class="chart-container">
+  @if (chartDataService.$subjectAverages()) {
+    <div style="text-align: center">
+      <apx-chart
+        [chart]="chartOptions.chart"
+        [colors]="chartOptions.colors"
+        [series]="chartOptions.series"
+        [theme]="chartOptions.theme"
+        [title]="chartOptions.title"
+        [xaxis]="chartOptions.xaxis"
+      ></apx-chart>
+    </div>
+  }
+</div>

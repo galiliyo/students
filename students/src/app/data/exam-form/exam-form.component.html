@@ -1,0 +1,133 @@
+<div class="controls flex-row flex-justify-end">
+  <button
+    (click)="onCloseDrawer()"
+    aria-label="Add Row button"
+    class="color-white"
+    color="accent"
+    mat-icon-button
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<form #formDirective="ngForm" (ngSubmit)="onSubmit()" [formGroup]="examForm">
+  <div class="form-container flex-column">
+    <!-- Name -->
+
+    <mat-form-field class="form-field">
+      <mat-label>Name</mat-label>
+      <input [readonly]="!!examId" formControlName="name" matInput />
+      @if (examForm.get("name")?.hasError("required")) {
+        <mat-error>Name is required</mat-error>
+      }
+      @if (examId) {
+        <mat-hint class="color-white">Readonly while editing exam</mat-hint>
+      }
+    </mat-form-field>
+
+    <div class="flex-row gap-1">
+      <!-- Subject -->
+      <mat-form-field class="form-field short">
+        <mat-label>Subject</mat-label>
+        <input formControlName="subject" matInput />
+        @if (examForm.get("subject")?.hasError("required")) {
+          <mat-error>Subject is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Grade -->
+      <mat-form-field class="form-field short">
+        <mat-label>Grade</mat-label>
+        <input
+          formControlName="grade"
+          matInput
+          max="100"
+          min="0"
+          type="number"
+        />
+        @if (examForm.get("grade")?.hasError("required")) {
+          <mat-error>Grade is required</mat-error>
+        }
+        @if (examForm.get("grade")?.hasError("min")) {
+          <mat-error>Grade must be greater than or equal to 0</mat-error>
+        }
+        @if (examForm.get("grade")?.hasError("max")) {
+          <mat-error>Grade must be less than or equal to 100</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <!-- Date -->
+    <mat-form-field class="form-field">
+      <mat-label>Join Date</mat-label>
+      <input
+        [matDatepicker]="joinDatePicker"
+        formControlName="joinDate"
+        matInput
+      />
+      <mat-datepicker-toggle
+        [for]="joinDatePicker"
+        matSuffix
+      ></mat-datepicker-toggle>
+      <mat-datepicker #joinDatePicker></mat-datepicker>
+      @if (examForm.get("joinDate")?.hasError("required")) {
+        <mat-error>Join Date is required</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field class="form-field mb-1">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput type="email" />
+      @if (examForm.get("email")?.hasError("required")) {
+        <mat-error>Email is required</mat-error>
+      }
+      @if (examForm.get("email")?.hasError("email")) {
+        <mat-error>Invalid email format</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="mat-h4 color-white">Address</div>
+
+    <!-- Address Line 1 -->
+    <mat-form-field class="form-field" formGroupName="address">
+      <mat-label>Address Line 1</mat-label>
+      <input formControlName="line_1" matInput />
+      @if (examForm.get("address.line_1")?.hasError("required")) {
+        <mat-error>Line 1 is required</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="flex-row gap-1">
+      <!-- ZIP -->
+      <mat-form-field class="form-field short" formGroupName="address">
+        <mat-label>ZIP Code</mat-label>
+        <input formControlName="zip" matInput />
+        @if (examForm.get("address.zip")?.hasError("required")) {
+          <mat-error>ZIP Code is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- City -->
+      <mat-form-field class="form-field short" formGroupName="address">
+        <mat-label>City</mat-label>
+        <input formControlName="city" matInput />
+        @if (examForm.get("address.city")?.hasError("required")) {
+          <mat-error>City is required</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <!-- Country -->
+    <mat-form-field class="form-field short mb-2" formGroupName="address">
+      <mat-label>Country</mat-label>
+      <input formControlName="country" matInput />
+      @if (examForm.get("address.country")?.hasError("required")) {
+        <mat-error>Country is required</mat-error>
+      }
+    </mat-form-field>
+
+    <button color="primary" mat-raised-button type="submit">
+      {{ examId ? "Update Exam" : "Add Exam" }}
+    </button>
+  </div>
+</form>

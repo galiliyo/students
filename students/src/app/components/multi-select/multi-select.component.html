@@ -1,0 +1,27 @@
+<mat-form-field class="select-container">
+  <mat-label>{{ label }}</mat-label>
+  <mat-select
+    #select
+    (openedChange)="onOpenChanged()"
+    (selectionChange)="onSelectionChange($event)"
+    multiple
+  >
+    @if (showSelectAll) {
+      <div class="select-all">
+        <mat-checkbox
+          (change)="toggleAllSelection()"
+          [(ngModel)]="allSelected"
+          [ngModelOptions]="{ standalone: true }"
+          >Select All</mat-checkbox
+        >
+      </div>
+    }
+    <mat-option
+      (click)="optionClick()"
+      *ngFor="let option of options"
+      [value]="option.value"
+    >
+      {{ option.label }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
