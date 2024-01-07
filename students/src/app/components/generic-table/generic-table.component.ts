@@ -15,6 +15,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { NgClass, NgForOf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
 export interface ColumnDef {
   colId: string;
   header: string;
@@ -42,7 +43,8 @@ export class GenericTableComponent<T>
   @Input() data: Record<string, any>[] = [];
   @Input() selectedRowId: number | null = null;
   @Input() pageSizeOptions: number[] = [5, 10, 20];
-  @Input() pageSize: number = 10;
+  @Input() pageSize = 10;
+  @Input() title = 'Data';
   @Output() selectedRowChange = new EventEmitter<any>();
   @Output() addRow = new EventEmitter<void>();
   @Output() deleteRow = new EventEmitter<number>();
@@ -51,6 +53,7 @@ export class GenericTableComponent<T>
 
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   displayedColumns: string[] = [];
+  @Input() displayOnly!: boolean;
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.data);

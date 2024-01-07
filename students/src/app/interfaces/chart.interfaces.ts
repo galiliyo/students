@@ -5,8 +5,10 @@ export interface SubjectAverage {
   averages: number[];
 }
 export interface StudentAverage {
-  students: string[];
-  averages: number[];
+  studentAverages: Map<
+    number,
+    { name: string; average: number; noOfExams: number }
+  >;
 }
 
 // generic input interface for all carts
