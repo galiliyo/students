@@ -31,19 +31,22 @@ export class ExamsService {
     }
   }
 
-  createExam(updatedExam: Exam) {
+  createExam(newExam: Exam) {
     const allStudents = this.getAllStudents();
+    // check if student exists (by name) - if so, use existing studentId, else create new studentId
+    // as to not create duplicate students
     const studentExists = allStudents.find(
-      (student) => student.name === updatedExam.name,
+      (student) => student.name === newExam.name,
     );
+
     if (studentExists) {
-      updatedExam.studentId = studentExists.studentId;
+      newExam.studentId = studentExists.studentId;
     } else {
-      updatedExam.studentId = Math.round(Math.random() * 10000);
+      newExam.studentId = Math.round(Math.random() * 10000);
     }
     const url = `${environment.baseUrl}/exams`;
     try {
-      return this.httpClient.post(url, updatedExam);
+      return this.httpClient.post(url, newExam);
     } catch (error) {
       console.log(`error createExam: ${error}`);
       return of(error);
@@ -69,6 +72,7 @@ export class ExamsService {
   getAllStudents(): Student[] {
     return (
       this._exams.value?.reduce((acc, curr) => {
+        console.log(curr);
         const existingStudent = acc.find(
           (student) => student.studentId === curr.studentId,
         );
