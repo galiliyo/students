@@ -9,8 +9,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { ExamFormComponent } from './exam-form/exam-form.component';
 import { Exam } from '../interfaces/exams.interface';
-import { DynamicFilterComponent } from '../components/dynamic-filter/dynamic-filter.component';
+import {
+  DynamicFilterComponent,
+  FilterOutput,
+  FilterState,
+} from '../components/dynamic-filter/dynamic-filter.component';
 import { dataTypes } from '../components/dynamic-filter/dynamic-filter.config';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-averages',
@@ -45,24 +50,30 @@ export class DataComponent implements OnInit {
     { column: 'subject', label: 'Subject', dataType: dataTypes.string },
     { column: 'joinDate', label: 'Date', dataType: dataTypes.date },
   ];
-
+  protected dynamicFilterInitialValues: FilterState | null = null;
   private selectedRow$ = new BehaviorSubject<Exam | null>(null);
   selectedStudent$ = this.selectedRow$.asObservable();
 
-  constructor(private examsService: ExamsService) {}
+  constructor(
+    private examsService: ExamsService,
+    private localStorageService: LocalStorageService,
+  ) {}
 
   ngOnInit() {
-    this.examsService.loadExams();
-
+    // no need to manually unsubscribe from these observables since Angular's router
+    // automatically destroys components on routes and unsubscribes
     this.examsService.exams$.subscribe((exams: Exam[]) => {
       this.unFilteredExams = exams?.map(formatExamDate) || [];
       this.filteredExams = [...this.unFilteredExams];
     });
 
-    // todo: unsubscribe
     this.selectedRow$.subscribe((selectedRow) => {
       this.selectedRowId = selectedRow?.id || null;
     });
+
+    this.dynamicFilterInitialValues =
+      this.localStorageService.getFromLocalStorage('data_filters');
+    console.log(this.dynamicFilterInitialValues);
   }
 
   selectedRowChange(newSelectedRow: Exam) {
@@ -89,8 +100,12 @@ export class DataComponent implements OnInit {
     });
   }
 
-  setFilteredData(eventData: Exam[]) {
-    this.filteredExams = eventData;
+  setFilteredData(eventData: FilterOutput) {
+    this.filteredExams = eventData.filteredData as Exam[];
+    this.localStorageService.saveToLocalStorage(
+      'data_filters',
+      eventData.filters,
+    );
   }
 }
 

@@ -60,8 +60,9 @@
           <!--          Render a dynamic component instead of the standard string-->
 
           <ng-container *ngComponentOutlet="getComponent(item)"></ng-container>
-
-          <div *cdkDragPreview class="cdk-drag-preview">{{ item }}</div>
+          <div *cdkDragPreview class="cdk-drag-preview">
+            {{ item }}
+          </div>
         </div>
       }
     </div>

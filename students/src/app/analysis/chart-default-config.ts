@@ -27,7 +27,6 @@ export const defaultChartOptions: Partial<ApexOptions> = {
   chart: {
     height: 450,
     align: 'center',
-    offsetX: 20,
     width: '94%',
     type: 'bar',
   },

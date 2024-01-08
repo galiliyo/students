@@ -192,19 +192,18 @@
       }
     },
     {
-      "id": 115,
       "subject": "Literature",
-      "grade": 78,
-      "studentId": 6586,
+      "grade": 81,
       "name": "Elizabeth Li",
       "email": "elizabeth.li@yahoo.com",
-      "joinDate": "2023-01-09T22:00:00.000Z",
+      "joinDate": "2023-01-09",
       "address": {
         "line_1": "974 Maple Ave.",
         "zip": "65301",
         "city": "San Francisco",
         "country": "USA"
-      }
+      },
+      "id": 115
     },
     {
       "id": 116,
@@ -3325,50 +3324,6 @@
         "city": "New York",
         "country": "USA"
       }
-    },
-    {
-      "subject": "sss",
-      "grade": 1,
-      "name": "aaaa",
-      "email": "s@ssdf",
-      "joinDate": "2024-01-06T22:00:00.000Z",
-      "address": {
-        "line_1": "d",
-        "zip": "dd",
-        "city": "f",
-        "country": "ffff"
-      },
-      "studentId": 4829,
-      "id": 326
-    },
-    {
-      "subject": "asdasd",
-      "grade": 100,
-      "name": "aaaa",
-      "email": "a@dsd",
-      "joinDate": "2024-01-15T22:00:00.000Z",
-      "address": {
-        "line_1": "sds",
-        "zip": "sdsd",
-        "city": "sdsd",
-        "country": "sdsd"
-      },
-      "studentId": 4829,
-      "id": 327
-    },
-    {
-      "subject": "Driving",
-      "grade": 70,
-      "name": "Max Stock",
-      "email": "f@eee",
-      "joinDate": "2024-01-15",
-      "address": {
-        "line_1": "we",
-        "zip": "wee",
-        "city": "ee",
-        "country": "www"
-      },
-      "id": 328
     }
   ]
 }

@@ -11,7 +11,6 @@ const chartOptions: Partial<ApexOptions> = {
   chart: {
     type: 'line',
     stacked: false,
-    offsetX: 20,
     width: '94%',
     height: 450,
     zoom: {

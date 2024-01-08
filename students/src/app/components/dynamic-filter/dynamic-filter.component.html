@@ -36,7 +36,7 @@
     @if (filterDataType === "date") {
       <mat-form-field class="select-container criteria-container">
         <mat-label>Choose a date</mat-label>
-        <input [matDatepicker]="picker" [(ngModel)]="selectedDate" matInput />
+        <input [matDatepicker]="picker" [(ngModel)]="dateCriteria" matInput />
         <mat-datepicker-toggle
           [for]="picker"
           matIconSuffix

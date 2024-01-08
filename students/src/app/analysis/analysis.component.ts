@@ -14,6 +14,7 @@ import {
   NgComponentOutlet,
   NgForOf,
   NgIf,
+  NgOptimizedImage,
   NgSwitchCase,
   NgTemplateOutlet,
 } from '@angular/common';
@@ -51,6 +52,7 @@ type ChartType = 'Student Averages' | 'Time Series' | 'Subject Averages';
     MatButtonModule,
     JsonPipe,
     ControlBarComponent,
+    NgOptimizedImage,
   ],
   templateUrl: './analysis.component.html',
   styleUrl: './analysis.component.scss',
@@ -90,9 +92,7 @@ export class AnalysisComponent implements OnInit, OnDestroy {
     // Subscribe to exams data
     this.examsService.exams$
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((exams) => {
-        // this.examsData = exams;
-
+      .subscribe(() => {
         // Set subject multi-select options
         this.subjectsOptions = this.examsService
           .getAllSubjects()

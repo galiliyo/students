@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -38,7 +37,6 @@ export interface ColumnDef {
   ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GenericTableComponent<T>
   implements OnInit, OnChanges, AfterViewInit

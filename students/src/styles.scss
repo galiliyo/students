@@ -10,15 +10,13 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-
   height: 100vh;
 }
 
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
-  //border: 3px solid red;
-  padding: 6rem 2rem 3rem 2rem;
+  padding: 5rem 2rem 3rem 2rem;
   flex: 1;
 }
 
@@ -57,7 +55,7 @@ body {
     height: 5.5rem;
     background: $gray-dark;
     border-radius: 4px;
-    padding: 0 2rem;
+    padding: 0 1rem 0 2rem;
     z-index: 10;
     .filter-label {
       margin-right: 1rem;

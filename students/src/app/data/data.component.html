@@ -12,11 +12,14 @@
     <div class="flex-row full-width flex-align-center flex-justify-between">
       <div class="flex-row flex-align-center flex-1">
         <div class="mat-h4 color-white mb-0 filter-label">Filter by:</div>
-        <app-dynamic-filter
-          (filteredData)="setFilteredData($event)"
-          [columnsConfig]="dynamicFilterConfig"
-          [data]="unFilteredExams"
-        ></app-dynamic-filter>
+        @if (this.unFilteredExams.length) {
+          <app-dynamic-filter
+            (filteredData)="setFilteredData($event)"
+            [columnsConfig]="dynamicFilterConfig"
+            [data]="unFilteredExams"
+            [initialFilters]="dynamicFilterInitialValues"
+          ></app-dynamic-filter>
+        }
       </div>
     </div>
   </app-generic-table>
