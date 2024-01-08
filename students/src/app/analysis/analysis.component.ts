@@ -30,7 +30,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ControlBarComponent } from '../components/control-bar/control-bar.component';
 
-type ChartType = 'Student Avg' | 'Time Series' | 'Subject Avg';
+type ChartType = 'Student Averages' | 'Time Series' | 'Subject Averages';
 
 @Component({
   selector: 'app-analysis',
@@ -56,17 +56,17 @@ type ChartType = 'Student Avg' | 'Time Series' | 'Subject Avg';
   styleUrl: './analysis.component.scss',
 })
 export class AnalysisComponent implements OnInit, OnDestroy {
-  visible = ['Student Avg', 'Time Series']; //  visible charts
-  hidden = ['Subject Avg']; //  hidden chart
+  visible = ['Student Averages', 'Time Series']; //  visible charts
+  hidden = ['Subject Averages']; //  hidden chart
   subjectsOptions: Option[] = []; // options for subject multi-select
   studentsOptions: Option[] = []; // options for student multi-select
   subjectSelections: string[] = []; // selected subjects
   studentSelections: string[] = []; // selected students
 
   components = {
-    ['Student Avg']: ChartStudentComponent,
+    ['Student Averages']: ChartStudentComponent,
     ['Time Series']: ChartTimeComponent,
-    ['Subject Avg']: ChartSubjectComponent,
+    ['Subject Averages']: ChartSubjectComponent,
   };
 
   protected selectPanelOpened = false; // whether a multi-select select panel is opened
@@ -118,7 +118,8 @@ export class AnalysisComponent implements OnInit, OnDestroy {
         event.currentIndex,
       );
     } else {
-      const sourceName = event.previousContainer.data.containerName;
+      const sourceName =
+        event.previousContainer.data.containerName === 'visible' ? 1 : 0;
       const remainingItemIdx = event.previousIndex === 0 ? 1 : 0;
       const removedItem = this.visible[event.previousIndex];
       const remainingItem = this.visible[remainingItemIdx];
