@@ -13,6 +13,7 @@
         <div class="mat-h4 color-white mb-0 filter-label">Filter by:</div>
         <app-dynamic-filter
           (filteredData)="setFilteredData($event)"
+          [columnsConfig]="dynamicFilterConfig"
           [data]="unFilteredExams"
         ></app-dynamic-filter>
       </div>

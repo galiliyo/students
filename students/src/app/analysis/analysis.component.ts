@@ -58,7 +58,6 @@ type ChartType = 'Student Avg' | 'Time Series' | 'Subject Avg';
 export class AnalysisComponent implements OnInit, OnDestroy {
   visible = ['Student Avg', 'Time Series']; //  visible charts
   hidden = ['Subject Avg']; //  hidden chart
-  // examsData: any[] = [];
   subjectsOptions: Option[] = []; // options for subject multi-select
   studentsOptions: Option[] = []; // options for student multi-select
   subjectSelections: string[] = []; // selected subjects

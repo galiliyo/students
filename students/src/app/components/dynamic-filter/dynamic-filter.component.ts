@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgForOf } from '@angular/common';
 import {
   DataType,
+  dataTypes,
   matOption,
   operatorOptionsConfig,
   OperatorType,
@@ -27,29 +28,29 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ReactiveFormsModule,
   ],
   templateUrl: './dynamic-filter.component.html',
-  styleUrl: './dynamic-filter.component.scss',
+  styleUrls: ['./dynamic-filter.component.scss'],
 })
-export class DynamicFilterComponent {
-  @Input() config = [
-    { column: 'name', label: 'Name', dataType: 'string' },
-    { column: 'grade', label: 'Grade', dataType: 'number' },
-    { column: 'date', label: 'Date', dataType: 'date' },
-  ];
-  @Input() data: any[] = [];
+export class DynamicFilterComponent implements OnInit {
+  @Input({ required: true }) columnsConfig: {
+    column: string;
+    label: string;
+    dataType: DataType;
+  }[] = [{ column: '', label: '', dataType: dataTypes.string }];
+  @Input({ required: true }) data: any[] = [];
   @Output() filteredData = new EventEmitter<any[]>();
 
   selectedColumn: string = 'name';
   selectedOperator: OperatorType = 'contain';
   filterCriteria: string = '';
   selectedDate: string = '';
-  protected columnOptions: { viewValue: string; value: string }[];
-  protected filterDataType: DataType = 'string';
+  protected columnOptions: { viewValue: string; value: string }[] = [];
+  protected filterDataType: DataType = dataTypes.string;
   protected operatorOptions: matOption[] = [
     { viewValue: 'Contains', value: 'contain' },
   ];
 
-  constructor() {
-    this.columnOptions = this.config.map((item) => ({
+  ngOnInit() {
+    this.columnOptions = this.columnsConfig.map((item) => ({
       value: item.column,
       viewValue: item.label,
     }));
@@ -68,24 +69,25 @@ export class DynamicFilterComponent {
     if (
       !this.selectedColumn ||
       !this.selectedOperator ||
-      (this.filterDataType !== 'date' && !this.filterCriteria) ||
-      (this.filterDataType === 'date' && !this.selectedDate)
+      (this.filterDataType !== dataTypes.date && !this.filterCriteria) ||
+      (this.filterDataType === dataTypes.date && !this.selectedDate)
     ) {
       this.filteredData.emit(this.data);
       return;
     }
 
     const filteredResult = this.data.filter((item) => {
+      // apply the filter based on the selected operator and data type
       const columnValue = item[this.selectedColumn];
       switch (this.filterDataType) {
-        case 'string':
+        case dataTypes.string:
           if (this.selectedOperator === 'contain') {
             return columnValue
               .toLowerCase()
               .includes(this.filterCriteria.toLowerCase());
           }
           break;
-        case 'number':
+        case dataTypes.number:
           const numericValue = parseFloat(columnValue);
           if (!isNaN(numericValue)) {
             if (this.selectedOperator === 'greaterThan') {
@@ -95,7 +97,7 @@ export class DynamicFilterComponent {
             }
           }
           break;
-        case 'date':
+        case dataTypes.date:
           const dateValue = new Date(columnValue);
           debugger;
           if (!isNaN(dateValue.getTime())) {
@@ -116,15 +118,13 @@ export class DynamicFilterComponent {
   onColumnSelected() {
     // set the filter data type based on the selected column
     this.filterDataType =
-      (this.config.find((item) => {
+      (this.columnsConfig.find((item) => {
         return item.column === this.selectedColumn;
-      })?.dataType as DataType) || 'string';
+      })?.dataType as DataType) || dataTypes.string;
     this.operatorOptions = operatorOptionsConfig[
       this.filterDataType
     ] as matOption[];
 
     this.selectedOperator = this.operatorOptions[0].value as OperatorType;
   }
-
-  private getOperatorOptions(filterDataType: DataType) {}
 }

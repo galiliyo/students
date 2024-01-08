@@ -1,4 +1,11 @@
-export type DataType = 'string' | 'number' | 'date';
+export const dataTypes = {
+  string: 'string',
+  number: 'number',
+  date: 'date',
+} as const;
+
+export type DataType = keyof typeof dataTypes;
+
 export type OperatorType =
   | 'contain'
   | 'greaterThan'

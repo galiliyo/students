@@ -10,8 +10,7 @@ import { AsyncPipe, NgClass } from '@angular/common';
 import { ExamFormComponent } from './exam-form/exam-form.component';
 import { Exam } from '../interfaces/exams.interface';
 import { DynamicFilterComponent } from '../components/dynamic-filter/dynamic-filter.component';
-
-function newSubject<T>(b: boolean) {}
+import { dataTypes } from '../components/dynamic-filter/dynamic-filter.config';
 
 @Component({
   selector: 'app-averages',
@@ -28,8 +27,8 @@ function newSubject<T>(b: boolean) {}
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent implements OnInit {
-  unFilteredExams: Exam[] = []; //  all exams
-  filteredExams: Exam[] = []; //  display in the table
+  unFilteredExams: Exam[] = []; // All exams
+  filteredExams: Exam[] = []; // Displayed in the table
   selectedRowId: number | null = null;
 
   columnDefinitions: ColumnDef[] = [
@@ -40,8 +39,15 @@ export class DataComponent implements OnInit {
     { colId: 'grade', header: 'Grade', sortable: true },
   ];
   showNewExamForm$ = new BehaviorSubject<boolean>(false);
-  private _selectedRow$ = new BehaviorSubject<Exam | null>(null);
-  selectedStudent$ = this._selectedRow$.asObservable();
+  dynamicFilterConfig = [
+    { column: 'name', label: 'Name', dataType: dataTypes.string },
+    { column: 'grade', label: 'Grade', dataType: dataTypes.number },
+    { column: 'subject', label: 'Subject', dataType: dataTypes.string },
+    { column: 'joinDate', label: 'Date', dataType: dataTypes.date },
+  ];
+
+  private selectedRow$ = new BehaviorSubject<Exam | null>(null);
+  selectedStudent$ = this.selectedRow$.asObservable();
 
   constructor(private examsService: ExamsService) {}
 
@@ -49,45 +55,42 @@ export class DataComponent implements OnInit {
     this.examsService.loadExams();
 
     this.examsService.exams$.subscribe((exams: Exam[]) => {
-      this.unFilteredExams = exams?.map((exam) => formatExamDate(exam));
-      this.filteredExams = this.unFilteredExams
-        ? [...this.unFilteredExams]
-        : [];
+      this.unFilteredExams = exams?.map(formatExamDate) || [];
+      this.filteredExams = [...this.unFilteredExams];
     });
 
-    //todo: unsubscribe
-    this._selectedRow$.subscribe((selectedRow) => {
+    // todo: unsubscribe
+    this.selectedRow$.subscribe((selectedRow) => {
       this.selectedRowId = selectedRow?.id || null;
     });
   }
 
   selectedRowChange(newSelectedRow: Exam) {
-    if (newSelectedRow.id === this.selectedRowId) {
-      this._selectedRow$.next(null);
-      return;
-    }
-    this._selectedRow$.next(newSelectedRow);
+    this.selectedRow$.next(
+      newSelectedRow.id === this.selectedRowId ? null : newSelectedRow,
+    );
   }
 
   openNewExamDrawer() {
-    this._selectedRow$.next(null);
+    this.selectedRow$.next(null);
     this.showNewExamForm$.next(true);
   }
 
   closeExamDrawer() {
-    this._selectedRow$.next(null);
+    this.selectedRow$.next(null);
     this.showNewExamForm$.next(false);
   }
+
   deleteRow(examId: number) {
     this.examsService.deleteExam(examId).subscribe(() => {
       this.examsService.loadExams();
       this.showNewExamForm$.next(false);
-      this._selectedRow$.next(null);
+      this.selectedRow$.next(null);
     });
   }
 
-  setFilteredData($event: any[]) {
-    this.filteredExams = $event;
+  setFilteredData(eventData: Exam[]) {
+    this.filteredExams = eventData;
   }
 }
 

@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -37,6 +38,7 @@ export interface ColumnDef {
   ],
   templateUrl: './generic-table.component.html',
   styleUrl: './generic-table.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GenericTableComponent<T>
   implements OnInit, OnChanges, AfterViewInit
@@ -55,8 +57,8 @@ export class GenericTableComponent<T>
 
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   displayedColumns: string[] = [];
-  @Input() displayOnly: boolean = false;
-  @Input() successRows: boolean = false;
+  @Input() displayOnly: boolean = false; // no hover states
+  @Input() successRows: boolean = false; // green and red rows
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.data);
