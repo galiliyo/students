@@ -2,8 +2,12 @@
   flex: 1;
   height: 100%;
 }
+.table-title-bar {
+  height: 3rem;
+}
 .table-row {
   cursor: pointer;
+
   transition: background-color 0.1s ease-in-out;
   &.hover-row {
     &:hover {

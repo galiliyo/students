@@ -58,12 +58,9 @@
       @for (item of visible; track item) {
         <div class="visible-box mat-elevation-z4" cdkDrag>
           <!--          Render a dynamic component instead of the standard string-->
-          <ng-container
-            *ngTemplateOutlet="
-              dynamicComponent;
-              context: { $implicit: getComponent(item) }
-            "
-          ></ng-container>
+
+          <ng-container *ngComponentOutlet="getComponent(item)"></ng-container>
+
           <div *cdkDragPreview class="cdk-drag-preview">{{ item }}</div>
         </div>
       }
@@ -78,10 +75,10 @@
       [cdkDropListConnectedTo]="[visibleList]"
       [cdkDropListData]="{ items: hidden, containerName: 'hidden' }"
       cdkDropList
-      class="hidden-list mat-elevation-z4"
+      class="hidden-list"
     >
       @for (item of hidden; track item) {
-        <div class="hidden-box" cdkDrag>{{ item }}</div>
+        <div class="hidden-box mat-elevation-z4" cdkDrag>{{ item }}</div>
       }
     </div>
   </div>
